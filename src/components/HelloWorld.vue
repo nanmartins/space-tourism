@@ -7,7 +7,8 @@
 
       <h1 class="text-h2 font-weight-bold">Vuetify</h1>
 
-      <h1 class="font-bellefair">Teste</h1>
+
+      <router-view></router-view>
 
       <div class="py-14" />
 

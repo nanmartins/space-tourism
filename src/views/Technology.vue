@@ -1,6 +1,6 @@
 <template>
-  <div class="home-view">
-    <!-- <h1>Home view</h1> -->
+  <div class="technology-view">
+
   </div>
 </template>
 
@@ -9,8 +9,9 @@
 </script>
 
 <style scoped>
-.home-view {
-  background-image: url('../assets/home/background-home-desktop.jpg');
+
+.technology-view {
+  background-image: url('../assets/technology/background-technology-desktop.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

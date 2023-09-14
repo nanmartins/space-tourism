@@ -9,7 +9,7 @@
       <span></span>
     </div>
 
-    <div class="header-links font-barlow">
+    <div class="header-links font-barlow-c">
       <router-link to="/" class="nav-links">
         <span class="font-weight-bold pr-1">00</span> Home
       </router-link>
@@ -56,7 +56,7 @@ export default {
   position: fixed;
   align-items: center;
   top: 40px;
-  left: 50px;
+  left: 60px;
   height: 96px;
 }
 
@@ -65,7 +65,7 @@ export default {
   display: flex;
   align-items: center;
   position: fixed;
-  left: 170px;
+  left: 165px;
   z-index: 10;
 }
 
@@ -73,7 +73,7 @@ export default {
   /* display: flex; */
   background: white;
   height: 1px;
-  width: 38vw;
+  width: 39vw;
   opacity: 0.2515;
 }
 
@@ -86,7 +86,7 @@ export default {
   align-items: center;
   justify-content: left;
   padding-left: 135px;
-  gap: 60px;
+  gap: 50px;
   background:rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(40.774227142333984px);
   height: 96px;
@@ -100,6 +100,7 @@ export default {
   color: #FFFFFF;
 }
 
+/* ACTIVE */
 .nav-links:hover {
   position: relative;
 }
@@ -115,12 +116,9 @@ export default {
   opacity: 0.5021;
 }
 
-
-/* ACTIVE */
 .router-link-exact-active {
-  /* color: red; */
-  text-decoration: none; /* Removemos o sublinhado padrão */
-  position: relative; /* Tornamos o link relativo para que o sublinhado absoluto funcione */
+  text-decoration: none;
+  position: relative;
 }
 
 .router-link-exact-active::after {

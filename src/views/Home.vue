@@ -1,8 +1,8 @@
 <template>
   <div class="home-view">
-    <v-row class="align-end justify-center ma-0 mb-8">
+    <v-row class="align-end justify-center ma-0">
 
-      <v-col cols=4 class="mb-14 pl-6 pb-16 text-left">
+      <v-col cols="4" class="mb-10 pb-16 text-left">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
         <h1 class="home-text-title font-bellefair text-uppercase text-secondary">Space</h1>
         <p class="home-text-paragraph font-barlow text-details">Let’s face it; if you want to go to space, you might as well genuinely go to
@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols=4 class="mb-16 pr-6 pb-16 text-right">
+      <v-col cols="4" class="mb-12 pr-6 pb-16 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
     </v-row>

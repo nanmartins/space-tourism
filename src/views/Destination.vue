@@ -1,52 +1,54 @@
 <template>
   <div class="destination-view">
     <v-row class="align-center justify-center ma-0">
-
-      <v-col cols="5">
-        <h2><span>01</span> Pick your destination</h2>
-
+      <v-col cols="5" class="dest-left-container">
+        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c">01</span> Pick your destination</h2>
+        <!-- <v-img :src="currentDestination.images.png" width="400px"></v-img> -->
       </v-col>
 
-      <v-col cols="5">
-        <div>
-          <router-link to="/destination" @click="updateDestination(data.destinations[0])">Moon</router-link>
-          <router-link to="/destination" @click="updateDestination(data.destinations[1])">Mars</router-link>
-          <router-link to="/destination" @click="updateDestination(data.destinations[2])">Europa</router-link>
-          <router-link to="/destination" @click="updateDestination(data.destinations[3])">Titan</router-link>
+      <v-col cols="5" class="dest-right-container">
+        <div class="dest-nav-links font-barlow-c">
+          <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
+          <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
+          <router-link to="/destination/Europa" class="nav-links">Europa</router-link>
+          <router-link to="/destination/Titan" class="nav-links">Titan</router-link>
         </div>
 
         <div class="destination-detail">
           <h2>{{ currentDestination.name }}</h2>
-          <img :src="currentDestination.images.png" alt="Destination Image">
           <p>{{ currentDestination.description }}</p>
           <p>Distance: {{ currentDestination.distance }}</p>
           <p>Travel Time: {{ currentDestination.travel }}</p>
         </div>
-
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 
-// Defina um estado para armazenar as informações do destino atualmente exibido
-const currentDestination = ref(null);
+const currentDestination = ref({
+  name: 'Moon',
+  images: {
+    png: '../assets/destination/image-moon.png',
+    webp: '../assets/destination/image-moon.webp',
+  },
+  description: 'See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.',
+  distance: '384,400 km',
+  travel: '3 days',
+});
+const route = useRoute()
 
-// Função para atualizar o estado com as informações do destino
-const updateDestination = (destination) => {
-  currentDestination.value = destination;
-};
 
-// Exemplo de dados (substitua pelo seu conjunto de dados)
 const data = {
   destinations: [
     {
       "name": "Moon",
       "images": {
-        "png": "./assets/destination/image-moon.png",
-        "webp": "./assets/destination/image-moon.webp"
+        "png": "../assets/destination/image-moon.png",
+        "webp": "../assets/destination/image-moon.webp"
       },
       "description": "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
       "distance": "384,400 km",
@@ -82,12 +84,17 @@ const data = {
       "distance": "1.6 bil. km",
       "travel": "7 years"
     }
-    // Adicione outros destinos aqui
   ]
-};
+}
 
-// Ao carregar o componente, defina um destino inicial (por exemplo, o primeiro destino)
-currentDestination.value = data.destinations[0];
+const updateDestination = () => {
+  const destinationName = route.params.name
+  currentDestination.value = data.destinations.find(dest => dest.name === destinationName)
+}
+
+watch(() => route.params.name, updateDestination)
+onMounted(updateDestination)
+
 </script>
 
 <style scoped>
@@ -99,4 +106,37 @@ currentDestination.value = data.destinations[0];
   background-repeat: no-repeat;
   height: 100vh;
 }
+
+/* LEFT  */
+.dest-left-container {
+  margin-top: 220px;
+}
+
+.dest-left-container span {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 4.725px;
+  opacity: 0.25;
+}
+
+.dest-left-container h2 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.725px;
+}
+
+/* RIGHT */
+.dest-right-container {
+  margin-top: 220PX;
+}
+
+.dest-nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* LINKS ACTIVE */
+
 </style>

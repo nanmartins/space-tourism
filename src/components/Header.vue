@@ -14,7 +14,7 @@
         <span class="font-weight-bold pr-1">00</span> Home
       </router-link>
 
-      <router-link to="/destination" class="nav-links">
+      <router-link to="/destination/Moon" class="nav-links" :class="{ active: $route.path.includes('/destination/') }">
         <span class="font-weight-bold pr-1">01</span> Destination
       </router-link>
 
@@ -29,10 +29,8 @@
   </div>
 </template>
 
-<script>
-export default {
+<script setup>
 
-}
 </script>
 
 <style scoped>
@@ -101,6 +99,20 @@ export default {
 }
 
 /* ACTIVE */
+.nav-links.active {
+  position: relative;
+}
+
+.nav-links.active::after {
+  content: "";
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+}
+
 .nav-links:hover {
   position: relative;
 }

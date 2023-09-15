@@ -2,8 +2,8 @@
   <div class="destination-view">
     <v-row class="align-center justify-center ma-0">
       <v-col cols="5" class="dest-left-container">
-        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c">01</span> Pick your destination</h2>
-        <!-- <v-img :src="currentDestination.images.png" width="400px"></v-img> -->
+        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
+        <v-img :src="imageUrl" class="dest-left-image" width="450px"></v-img>
       </v-col>
 
       <v-col cols="5" class="dest-right-container">
@@ -28,6 +28,12 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import MoonImg from '@/assets/destination/image-moon.png'
+import MarsImg from '@/assets/destination/image-mars.png'
+import EuropaImg from '@/assets/destination/image-europa.png'
+import TitanImg from '@/assets/destination/image-titan.png'
+
+const route = useRoute()
 
 const currentDestination = ref({
   name: 'Moon',
@@ -39,8 +45,23 @@ const currentDestination = ref({
   distance: '384,400 km',
   travel: '3 days',
 });
-const route = useRoute()
 
+const imageMap = {
+  'Moon': MoonImg,
+  'Mars': MarsImg,
+  'Europa': EuropaImg,
+  'Titan': TitanImg,
+}
+
+const imageUrl = ref(MoonImg)
+
+const updateImage = () => {
+  const urlParts = route.path.split('/')
+  const lastPart = urlParts[urlParts.length -1]
+  imageUrl.value = imageMap[lastPart]
+}
+
+watch(() => route.path, updateImage, { immediate: true })
 
 const data = {
   destinations: [
@@ -109,7 +130,7 @@ onMounted(updateDestination)
 
 /* LEFT  */
 .dest-left-container {
-  margin-top: 220px;
+  margin-top: 200px;
 }
 
 .dest-left-container span {
@@ -125,6 +146,11 @@ onMounted(updateDestination)
   font-weight: 400;
   line-height: normal;
   letter-spacing: 4.725px;
+}
+
+.dest-left-image {
+  margin-left: 120px;
+  margin-top: 150px;
 }
 
 /* RIGHT */

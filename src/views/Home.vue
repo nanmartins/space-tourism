@@ -1,6 +1,6 @@
 <template>
   <div class="home-view">
-    <v-row class="align-end justify-center ma-0">
+    <v-row class="align-end justify-center ma-0 mb-10">
 
       <v-col cols="4" class="mb-10 pb-16 text-left">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
@@ -13,6 +13,7 @@
       <v-col cols="4" class="mb-12 pr-6 pb-16 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
+
     </v-row>
   </div>
 </template>

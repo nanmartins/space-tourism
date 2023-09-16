@@ -1,52 +1,88 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0">
-
-      <v-col cols="5">
-        <h2><span>01</span> Pick your destination</h2>
-
+    <v-row class="align-center justify-center ma-0 pt-8 pl-16">
+      <v-col cols="5" class="dest-left-container">
+        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
+        <v-img :src="imageUrl" class="dest-left-image" width="550px"></v-img>
       </v-col>
 
-      <v-col cols="5">
-        <div>
-          <router-link to="/destination" @click="updateDestination(data.destinations[0])">Moon</router-link>
-          <router-link to="/destination" @click="updateDestination(data.destinations[1])">Mars</router-link>
-          <router-link to="/destination" @click="updateDestination(data.destinations[2])">Europa</router-link>
-          <router-link to="/destination" @click="updateDestination(data.destinations[3])">Titan</router-link>
+      <v-col cols="5" class="dest-right-container pl-16">
+        <div class="dest-nav-links font-barlow-c mb-8">
+          <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
+          <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
+          <router-link to="/destination/Europa" class="nav-links">Europa</router-link>
+          <router-link to="/destination/Titan" class="nav-links">Titan</router-link>
         </div>
 
         <div class="destination-detail">
-          <h2>{{ currentDestination.name }}</h2>
-          <img :src="currentDestination.images.png" alt="Destination Image">
-          <p>{{ currentDestination.description }}</p>
-          <p>Distance: {{ currentDestination.distance }}</p>
-          <p>Travel Time: {{ currentDestination.travel }}</p>
-        </div>
+          <h2 class="dest-right-title font-bellefair py-4">{{ currentDestination.name }}</h2>
+          <p class="dest-right-paragraph font-barlow text-details">{{ currentDestination.description }}</p>
 
+          <v-divider class="mt-10 mb-6" width="435px"></v-divider>
+
+          <div class="d-flex">
+            <div>
+              <p class="dest-right-distance font-barlow-c text-details">Avg. Distance</p>
+              <p class="dest-right-distance-km font-bellefair">{{ currentDestination.distance }}</p>
+            </div>
+
+            <div>
+              <p class="dest-right-travel font-barlow-c text-details">Est. Travel Time</p>
+              <p class="dest-right-travel-time font-bellefair">{{ currentDestination.travel }}</p>
+            </div>
+          </div>
+
+        </div>
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import MoonImg from '@/assets/destination/image-moon.png'
+import MarsImg from '@/assets/destination/image-mars.png'
+import EuropaImg from '@/assets/destination/image-europa.png'
+import TitanImg from '@/assets/destination/image-titan.png'
 
-// Defina um estado para armazenar as informações do destino atualmente exibido
-const currentDestination = ref(null);
+const route = useRoute()
 
-// Função para atualizar o estado com as informações do destino
-const updateDestination = (destination) => {
-  currentDestination.value = destination;
-};
+const currentDestination = ref({
+  name: 'Moon',
+  images: {
+    png: '../assets/destination/image-moon.png',
+    webp: '../assets/destination/image-moon.webp',
+  },
+  description: 'See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.',
+  distance: '384,400 km',
+  travel: '3 days',
+});
 
-// Exemplo de dados (substitua pelo seu conjunto de dados)
+const imageMap = {
+  'Moon': MoonImg,
+  'Mars': MarsImg,
+  'Europa': EuropaImg,
+  'Titan': TitanImg,
+}
+
+const imageUrl = ref(MoonImg)
+
+const updateImage = () => {
+  const urlParts = route.path.split('/')
+  const lastPart = urlParts[urlParts.length -1]
+  imageUrl.value = imageMap[lastPart]
+}
+
+watch(() => route.path, updateImage, { immediate: true })
+
 const data = {
   destinations: [
     {
       "name": "Moon",
       "images": {
-        "png": "./assets/destination/image-moon.png",
-        "webp": "./assets/destination/image-moon.webp"
+        "png": "../assets/destination/image-moon.png",
+        "webp": "../assets/destination/image-moon.webp"
       },
       "description": "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
       "distance": "384,400 km",
@@ -82,12 +118,17 @@ const data = {
       "distance": "1.6 bil. km",
       "travel": "7 years"
     }
-    // Adicione outros destinos aqui
   ]
-};
+}
 
-// Ao carregar o componente, defina um destino inicial (por exemplo, o primeiro destino)
-currentDestination.value = data.destinations[0];
+const updateDestination = () => {
+  const destinationName = route.params.name
+  currentDestination.value = data.destinations.find(dest => dest.name === destinationName)
+}
+
+watch(() => route.params.name, updateDestination)
+onMounted(updateDestination)
+
 </script>
 
 <style scoped>
@@ -99,4 +140,123 @@ currentDestination.value = data.destinations[0];
   background-repeat: no-repeat;
   height: 100vh;
 }
+
+.destination-view::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 211, 211, 0.04); /* Cor cinza semitransparente */
+  mix-blend-mode: screen;
+  pointer-events: none; /* Adicione esta linha para permitir a interação com os elementos abaixo */
+}
+
+/* LEFT  */
+.dest-left-container {
+  margin-top: 200px;
+}
+
+.dest-left-container span {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 4.725px;
+  opacity: 0.25;
+}
+
+.dest-left-container h2 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.725px;
+}
+
+.dest-left-image {
+  margin-left: 120px;
+  margin-top: 150px;
+}
+
+/* RIGHT */
+.dest-right-container {
+  margin-top: 220PX;
+  margin-left: 100px;
+}
+
+.dest-nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links {
+  color: #D0D6F9;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.7px;
+}
+
+.dest-right-title {
+  font-size: 100px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dest-right-paragraph {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  max-width: 450px;
+}
+
+.dest-right-distance, .dest-right-travel {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2.362px;
+  margin-right: 120px;
+  margin-bottom: 12px;
+}
+
+.dest-right-distance-km, .dest-right-travel-time {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+/* LINKS ACTIVE */
+.nav-links {
+  position: relative;
+}
+
+.nav-links:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.router-link-exact-active {
+  position: relative;
+  color: #FFFFFF;
+}
+
+.router-link-exact-active::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+}
+
 </style>

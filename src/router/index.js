@@ -15,9 +15,9 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
       },
       {
-        path: '/destination',
+        path: '/destination/:name',
         name: 'Destination',
-        component: () => import('@/views/Destination.vue')
+        component: () => import('@/views/Destination.vue'),
       },
       {
         path: '/crew',
@@ -32,12 +32,6 @@ const routes = [
 
     ],
   },
-
-  {
-    path: '/destination',
-    component: () => import('@/views/Destination.vue')
-
-  }
 ]
 
 const router = createRouter({

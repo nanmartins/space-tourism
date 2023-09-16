@@ -1,6 +1,6 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0 pl-12">
+    <v-row class="align-center justify-center ma-0 pl-12" style="height: 100%; align-items: flex-end;">
       <v-col cols="5" class="dest-left-container">
         <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
         <v-img :src="imageUrl" class="dest-left-image" width="450px"></v-img>

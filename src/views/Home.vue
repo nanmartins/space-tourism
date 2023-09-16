@@ -13,6 +13,7 @@
       <v-col cols="4" class="mb-12 pr-6 pb-16 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
+
     </v-row>
   </div>
 </template>

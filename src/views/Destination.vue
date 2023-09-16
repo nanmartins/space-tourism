@@ -1,13 +1,13 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0">
+    <v-row class="align-center justify-center ma-0 pt-8 pl-16">
       <v-col cols="5" class="dest-left-container">
         <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
-        <v-img :src="imageUrl" class="dest-left-image" width="450px"></v-img>
+        <v-img :src="imageUrl" class="dest-left-image" width="550px"></v-img>
       </v-col>
 
-      <v-col cols="5" class="dest-right-container">
-        <div class="dest-nav-links font-barlow-c">
+      <v-col cols="5" class="dest-right-container pl-16">
+        <div class="dest-nav-links font-barlow-c mb-8">
           <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
           <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
           <router-link to="/destination/Europa" class="nav-links">Europa</router-link>
@@ -15,10 +15,23 @@
         </div>
 
         <div class="destination-detail">
-          <h2>{{ currentDestination.name }}</h2>
-          <p>{{ currentDestination.description }}</p>
-          <p>Distance: {{ currentDestination.distance }}</p>
-          <p>Travel Time: {{ currentDestination.travel }}</p>
+          <h2 class="dest-right-title font-bellefair py-4">{{ currentDestination.name }}</h2>
+          <p class="dest-right-paragraph font-barlow text-details">{{ currentDestination.description }}</p>
+
+          <v-divider class="mt-10 mb-6" width="435px"></v-divider>
+
+          <div class="d-flex">
+            <div>
+              <p class="dest-right-distance font-barlow-c text-details">Avg. Distance</p>
+              <p class="dest-right-distance-km font-bellefair">{{ currentDestination.distance }}</p>
+            </div>
+
+            <div>
+              <p class="dest-right-travel font-barlow-c text-details">Est. Travel Time</p>
+              <p class="dest-right-travel-time font-bellefair">{{ currentDestination.travel }}</p>
+            </div>
+          </div>
+
         </div>
       </v-col>
     </v-row>
@@ -128,6 +141,18 @@ onMounted(updateDestination)
   height: 100vh;
 }
 
+.destination-view::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 211, 211, 0.04); /* Cor cinza semitransparente */
+  mix-blend-mode: screen;
+  pointer-events: none; /* Adicione esta linha para permitir a interação com os elementos abaixo */
+}
+
 /* LEFT  */
 .dest-left-container {
   margin-top: 200px;
@@ -156,6 +181,7 @@ onMounted(updateDestination)
 /* RIGHT */
 .dest-right-container {
   margin-top: 220PX;
+  margin-left: 100px;
 }
 
 .dest-nav-links {
@@ -163,6 +189,74 @@ onMounted(updateDestination)
   gap: 20px;
 }
 
+.nav-links {
+  color: #D0D6F9;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.7px;
+}
+
+.dest-right-title {
+  font-size: 100px;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.dest-right-paragraph {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+  max-width: 450px;
+}
+
+.dest-right-distance, .dest-right-travel {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2.362px;
+  margin-right: 120px;
+  margin-bottom: 12px;
+}
+
+.dest-right-distance-km, .dest-right-travel-time {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
 /* LINKS ACTIVE */
+.nav-links {
+  position: relative;
+}
+
+.nav-links:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.router-link-exact-active {
+  position: relative;
+  color: #FFFFFF;
+}
+
+.router-link-exact-active::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #FFFFFF;
+}
 
 </style>

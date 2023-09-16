@@ -1,9 +1,9 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0 pt-8 pl-16">
+    <v-row class="align-center justify-center ma-0 pl-12">
       <v-col cols="5" class="dest-left-container">
         <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
-        <v-img :src="imageUrl" class="dest-left-image" width="550px"></v-img>
+        <v-img :src="imageUrl" class="dest-left-image" width="450px"></v-img>
       </v-col>
 
       <v-col cols="5" class="dest-right-container pl-16">
@@ -148,14 +148,14 @@ onMounted(updateDestination)
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(211, 211, 211, 0.04); /* Cor cinza semitransparente */
+  background-color: rgba(211, 211, 211, 0.04);
   mix-blend-mode: screen;
-  pointer-events: none; /* Adicione esta linha para permitir a interação com os elementos abaixo */
+  pointer-events: none;
 }
 
 /* LEFT  */
 .dest-left-container {
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .dest-left-container span {
@@ -171,11 +171,13 @@ onMounted(updateDestination)
   font-weight: 400;
   line-height: normal;
   letter-spacing: 4.725px;
+  margin-top: 80px;
 }
 
 .dest-left-image {
   margin-left: 120px;
   margin-top: 150px;
+  margin-top: 60px;
 }
 
 /* RIGHT */

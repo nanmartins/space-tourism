@@ -37,15 +37,11 @@
 
 .header-container {
   width: 100vw;
-  /* background: red; */
   height: 96px;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   position: fixed;
   top: 40px;
-  /* right: 0; */
-  /* background: green; */
 }
 
 /* LOGO */
@@ -68,7 +64,6 @@
 }
 
 .header-divider span {
-  /* display: flex; */
   background: white;
   height: 1px;
   width: 39vw;

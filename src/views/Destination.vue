@@ -2,8 +2,8 @@
   <div class="destination-view">
     <v-row class="align-center justify-center ma-0 pl-12" style="height: 100%; align-items: flex-end;">
       <v-col cols="5" class="dest-left-container">
-        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
-        <v-img :src="imageUrl" class="dest-left-image" width="450px"></v-img>
+        <h2 class="font-barlow-c text-uppercase pl-10"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
+        <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
 
       <v-col cols="5" class="dest-right-container pl-16">
@@ -138,7 +138,7 @@ onMounted(updateDestination)
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
 }
 
 .destination-view::before {
@@ -178,6 +178,8 @@ onMounted(updateDestination)
   margin-left: 120px;
   margin-top: 150px;
   margin-top: 60px;
+  max-width: 450px;
+  width: 100%;
 }
 
 /* RIGHT */

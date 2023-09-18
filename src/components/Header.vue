@@ -18,7 +18,7 @@
         <span class="font-weight-bold pr-1">01</span> Destination
       </router-link>
 
-      <router-link to="/crew" class="nav-links">
+      <router-link to="/crew/Anousheh-Ansari" class="nav-links" :class="{ active: $route.path.includes('/crew/') }">
         <span class="font-weight-bold pr-1">02</span> Crew
       </router-link>
 

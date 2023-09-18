@@ -3,10 +3,10 @@
     <v-row class="align-center justify-center ma-0 pl-12" style="height: 100%; align-items: flex-end;">
       <v-col cols="5" class="dest-left-container">
         <h2 class="font-barlow-c text-uppercase pl-10"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
-        <v-img :src="imageUrl" class="dest-left-image"></v-img>
+        <v-img :src="imageUrl" class="dest-left-image mr-lg-16 mr-0"></v-img>
       </v-col>
 
-      <v-col cols="5" class="dest-right-container pl-16">
+      <v-col cols="5" class="dest-right-container pl-lg-16 pl-md-0">
         <div class="dest-nav-links font-barlow-c mb-8">
           <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
           <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
@@ -18,7 +18,7 @@
           <h2 class="dest-right-title font-bellefair py-4">{{ currentDestination.name }}</h2>
           <p class="dest-right-paragraph font-barlow text-details">{{ currentDestination.description }}</p>
 
-          <v-divider class="mt-10 mb-6" width="435px"></v-divider>
+          <v-divider class="dest-right-divider mt-10 mb-6"></v-divider>
 
           <div class="d-flex">
             <div>
@@ -156,6 +156,7 @@ onMounted(updateDestination)
 /* LEFT  */
 .dest-left-container {
   margin-top: 100px;
+  display: grid;
 }
 
 .dest-left-container span {
@@ -180,6 +181,7 @@ onMounted(updateDestination)
   margin-top: 60px;
   max-width: 450px;
   width: 100%;
+  justify-self: end;
 }
 
 /* RIGHT */
@@ -214,6 +216,10 @@ onMounted(updateDestination)
   font-weight: 400;
   line-height: 32px;
   max-width: 450px;
+}
+
+.dest-right-divider {
+  max-width: 435px;
 }
 
 .dest-right-distance, .dest-right-travel {

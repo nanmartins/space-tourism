@@ -78,7 +78,7 @@
   right: 0;
   align-items: center;
   justify-content: left;
-  padding-left: 135px;
+  padding-left: 130px;
   gap: 50px;
   background:rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(40.774227142333984px);

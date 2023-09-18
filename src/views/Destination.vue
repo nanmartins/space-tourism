@@ -1,9 +1,10 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0 pl-12" style="height: 100%; align-items: flex-end;">
-      <v-col cols="5" class="dest-left-container">
-        <h2 class="font-barlow-c text-uppercase pl-10"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
-        <v-img :src="imageUrl" class="dest-left-image mr-lg-16 mr-0"></v-img>
+    <v-row class="align-center justify-center ma-0 pl-12" style="height: 100%;">
+
+      <v-col cols="5" class="dest-left-container pa-0 pl-lg-16">
+        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
+        <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
 
       <v-col cols="5" class="dest-right-container pl-lg-16 pl-md-0">
@@ -155,8 +156,7 @@ onMounted(updateDestination)
 
 /* LEFT  */
 .dest-left-container {
-  margin-top: 100px;
-  display: grid;
+  margin-top: 80px;
 }
 
 .dest-left-container span {
@@ -176,17 +176,17 @@ onMounted(updateDestination)
 }
 
 .dest-left-image {
-  margin-left: 120px;
+  margin-left: 60px;
   margin-top: 150px;
   margin-top: 60px;
-  max-width: 450px;
+  max-width: 7000px;
   width: 100%;
   justify-self: end;
 }
 
 /* RIGHT */
 .dest-right-container {
-  margin-top: 220PX;
+  margin-top: 220px;
   margin-left: 100px;
 }
 

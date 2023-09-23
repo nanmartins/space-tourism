@@ -206,8 +206,7 @@ const data = {
 .crew-right-container {
   display: flex;
   height: 100%;
-  max-width: 1000px;
-
+  /* max-width: 1000px; */
 }
 
 .crew-right-img {

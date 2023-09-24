@@ -1,14 +1,46 @@
 <template>
   <div class="technology-view">
+
+    <v-row class="testando ma-0 pa-0">
+      <!-- <div> -->
+
+        <v-col cols="8">
+          TEXTO
+        </v-col>
+
+        <v-col cols="4" class="pa-0">
+          <v-img :src="LaunchVehicle" height="550px"></v-img>
+        </v-col>
+      <!-- </div> -->
+    </v-row>
     <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import LauchVehicle from '@/assets/technology/lauch-vehicle.jpg'
+import { useRoute } from 'vue-router'
+import LaunchVehicle from '@/assets/technology/launch-vehicle.jpg'
 import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
+
+const route = useRoute()
+
+const imageMap = {
+  'Launch-vehicle': LaunchVehicle,
+  'Spaceport': SpacePort,
+  'Space-capsule': SpaceCapsule
+}
+
+const currentTechnology = ref({
+  name: "Launch vehicle",
+    images: {
+      portrait: "./assets/technology/image-launch-vehicle-portrait.jpg",
+      landscape: "./assets/technology/image-launch-vehicle-landscape.jpg"
+    },
+    description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+})
+
 
 const data =  {
   technology: [
@@ -53,5 +85,15 @@ const data =  {
 
 .in-progress {
   letter-spacing: 2.7px;
+}
+
+
+
+
+/* ///////////////////////////////////// */
+.testando {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0 pl-12" style="height: 100%;">
+    <v-row class="align-center justify-center ma-0 pl-xl-10" style="height: 100%;">
 
-      <v-col cols="5" class="dest-left-container pa-0 pl-lg-10">
-        <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">01</span> Pick your destination</h2>
+      <v-col cols="5" lg="4" class="dest-left-container pa-0">
+        <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2>
         <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
 
-      <v-col cols="5" class="dest-right-container pl-lg-16 pl-md-0">
+      <v-col cols="5" lg="4" class="dest-right-container pl-lg-4 pl-md-0 pr-0 pt-0">
         <div class="dest-nav-links font-barlow-c mb-8">
           <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
           <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
@@ -179,7 +179,7 @@ onMounted(updateDestination)
   margin-left: 60px;
   margin-top: 150px;
   margin-top: 60px;
-  max-width: 500px;
+  max-width: 550px;
   width: 100%;
   justify-self: end;
 }

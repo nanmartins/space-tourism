@@ -206,10 +206,6 @@ const data = {
 .crew-right-container {
   display: flex;
   height: 100%;
-<<<<<<< HEAD
-  /* max-width: 1000px; */
-=======
->>>>>>> 752e409508f988fecceb2f3a3187f375b9d20fe2
 }
 
 .crew-right-img {

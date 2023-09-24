@@ -1,9 +1,9 @@
 <template>
   <div class="crew-view">
-    <v-row class="align-center justify-center ma-0" style="height: 100%; align-items: flex-end;">
+    <v-row class="align-center justify-center pa-0 ma-0" style="height: 100%; align-items: flex-end;">
 
-      <v-col cols="6" class="crew-left-container justify-center pl-10">
-        <div class="crew-left-div">
+      <v-col cols="6" xl="5" class="crew-left-container justify-start pa-0">
+        <div class="crew-left-div pl-sm-10">
           <h2 class="crew-left-meet font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2>
           <h2 class="crew-left-role font-bellefair">{{ currentCrew.role }}</h2>
           <h1 class="crew-left-name font-bellefair">{{ currentCrew.name }}</h1>
@@ -20,7 +20,7 @@
 
       </v-col>
 
-      <v-col cols="5" class="crew-right-container pa-0">
+      <v-col cols="5" xl="4" class="crew-right-container pa-0">
         <v-img :src="imageUrl" class="crew-right-img"></v-img>
       </v-col>
 
@@ -206,12 +206,15 @@ const data = {
 .crew-right-container {
   display: flex;
   height: 100%;
+<<<<<<< HEAD
   /* max-width: 1000px; */
+=======
+>>>>>>> 752e409508f988fecceb2f3a3187f375b9d20fe2
 }
 
 .crew-right-img {
   align-self: flex-end;
-  max-height: 900px;
+  max-height: 600px;
 }
 
 /* ACTIVE */

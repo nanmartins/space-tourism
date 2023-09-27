@@ -1,6 +1,6 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0 pl-xl-10" style="height: 100%;">
+    <v-row class="align-center justify-center ma-0 pl-lg-8 pl-xl-16" style="height: 100%;">
 
       <v-col cols="5" lg="4" class="dest-left-container pa-0">
         <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2>

@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import LauchVehicle from '@/assets/technology/lauch-vehicle.jpg'
+import LauchVehicle from '@/assets/technology/launch-vehicle.jpg'
 import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
 

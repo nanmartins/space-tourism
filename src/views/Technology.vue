@@ -1,12 +1,24 @@
 <template>
   <div class="technology-view">
-    <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3>
+    <!-- <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3> -->
+    <v-row class="justify-end" style="padding-top: 220px">
+
+      <v-col cols="auto">
+        <h1>TEXTO</h1>
+      </v-col>
+
+      <v-col cols="auto" class="text-left">
+        <v-img :src="LaunchVehicle" width="480px"></v-img>
+      </v-col>
+
+    </v-row>
+
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import LauchVehicle from '@/assets/technology/launch-vehicle.jpg'
+import LaunchVehicle from '@/assets/technology/launch-vehicle.jpg'
 import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
 

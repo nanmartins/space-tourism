@@ -1,19 +1,18 @@
 <template>
   <div class="technology-view">
+    <!-- <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3> -->
+    <v-row class="justify-end" style="padding-top: 220px">
 
-    <v-row class="testando ma-0 pa-0">
-      <!-- <div> -->
+      <v-col cols="auto">
+        <h1>TEXTO</h1>
+      </v-col>
 
-        <v-col cols="8">
-          TEXTO
-        </v-col>
+      <v-col cols="auto" class="text-left">
+        <v-img :src="LaunchVehicle" width="480px"></v-img>
+      </v-col>
 
-        <v-col cols="4" class="pa-0">
-          <v-img :src="LaunchVehicle" height="550px"></v-img>
-        </v-col>
-      <!-- </div> -->
     </v-row>
-    <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3>
+
   </div>
 </template>
 

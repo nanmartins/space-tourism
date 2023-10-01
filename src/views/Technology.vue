@@ -18,9 +18,28 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import LaunchVehicle from '@/assets/technology/launch-vehicle.jpg'
 import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
+
+const route = useRoute()
+
+const imageMap = {
+  'Launch-vehicle': LaunchVehicle,
+  'Spaceport': SpacePort,
+  'Space-capsule': SpaceCapsule
+}
+
+const currentTechnology = ref({
+  name: "Launch vehicle",
+    images: {
+      portrait: "./assets/technology/image-launch-vehicle-portrait.jpg",
+      landscape: "./assets/technology/image-launch-vehicle-landscape.jpg"
+    },
+    description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+})
+
 
 const data =  {
   technology: [
@@ -65,5 +84,15 @@ const data =  {
 
 .in-progress {
   letter-spacing: 2.7px;
+}
+
+
+
+
+/* ///////////////////////////////////// */
+.testando {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 </style>

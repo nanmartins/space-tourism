@@ -41,7 +41,7 @@
   display: flex;
   align-items: center;
   position: fixed;
-  top: 40px;
+  top: 30px;
 }
 
 /* LOGO */
@@ -49,7 +49,7 @@
   display: flex;
   position: fixed;
   align-items: center;
-  top: 40px;
+  top: 30px;
   left: 60px;
   height: 96px;
 }
@@ -74,7 +74,7 @@
 .header-links {
   display: flex;
   position: fixed;
-  top: 40px;
+  top: 30px;
   right: 0;
   align-items: center;
   justify-content: left;

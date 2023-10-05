@@ -1,12 +1,12 @@
 <template>
   <div class="technology-view">
     <!-- <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3> -->
-    <h2 class="tech-left-device-name font-barlow-c text-uppercase" style="padding-top: 180px; padding-left: 165px"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
+    <h2 class="tech-left-device-name font-barlow-c text-uppercase" style="padding-top: 170px; padding-left: 165px"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
 
-    <v-row class="justify-end">
+    <v-row class="justify-end pt-10">
 
       <v-col cols="auto" class="pa-0 pr-16 pt-10">
-        <div class="d-flex justify-start">
+        <div class="d-flex justify-start pt-10">
           <div cols="3" class="tech-nav-links d-flex flex-column font-bellefair">
             <router-link to="/technology" class="nav-links d-flex justify-center align-center">1</router-link>
             <router-link to="/technology" class="nav-links d-flex justify-center align-center">2</router-link>
@@ -45,6 +45,16 @@ const imageMap = {
 }
 
 const imageUrl = ref(LaunchVehicle)
+
+const currentTechnology = ref({
+  name: "Launch vehicle",
+    images: {
+      portrait: "./assets/technology/image-launch-vehicle-portrait.jpg",
+      landscape: "./assets/technology/image-launch-vehicle-landscape.jpg"
+    },
+    description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+})
+
 
 const data =  {
   technology: [
@@ -121,5 +131,15 @@ const data =  {
 
 .in-progress {
   letter-spacing: 2.7px;
+}
+
+
+
+
+/* ///////////////////////////////////// */
+.testando {
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="crew-view">
     <v-row class="align-center justify-center pa-0 ma-0" style="height: 100%; align-items: flex-end;">
 
-      <v-col cols="6" xl="5" class="crew-left-container justify-start pa-0">
+      <v-col cols="6" xl="5" class="crew-left-container justify-start pa-0 pl-16">
         <div class="crew-left-div pl-sm-10">
           <h2 class="crew-left-meet font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2>
           <h2 class="crew-left-role font-bellefair">{{ currentCrew.role }}</h2>
@@ -173,6 +173,7 @@ const data = {
   line-height: normal;
   text-transform: uppercase;
   margin-top: 15px;
+  white-space: nowrap;
 }
 
 
@@ -210,7 +211,7 @@ const data = {
 
 .crew-right-img {
   align-self: flex-end;
-  max-height: 600px;
+  max-height: 580px;
 }
 
 /* ACTIVE */

@@ -2,7 +2,7 @@
   <div class="destination-view">
     <v-row class="align-center justify-center ma-0 pl-lg-8 pl-xl-16" style="height: 100%;">
 
-      <v-col cols="5" xl="4" class="dest-left-container pa-0 pl-10">
+      <v-col cols="5" xl="4" class="dest-left-container pa-0 pl-2">
         <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2>
         <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
@@ -179,7 +179,7 @@ onMounted(updateDestination)
   margin-left: 60px;
   margin-top: 150px;
   margin-top: 60px;
-  max-width: 550px;
+  max-width: 500px;
   width: 100%;
   justify-self: end;
 }

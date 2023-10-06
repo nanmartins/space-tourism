@@ -22,7 +22,7 @@
         <span class="font-weight-bold pr-1">02</span> Crew
       </router-link>
 
-      <router-link to="/technology" class="nav-links">
+      <router-link to="/technology/Launch-vehicle" class="nav-links" :class="{ active: $route.path.includes('/technology/') }">
         <span class="font-weight-bold pr-1">03</span> Technology
       </router-link>
     </div>

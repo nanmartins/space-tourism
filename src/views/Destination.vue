@@ -156,7 +156,7 @@ onMounted(updateDestination)
 
 /* LEFT  */
 .dest-left-container {
-  margin-top: 80px;
+  margin-top: 65px;
 }
 
 .dest-left-container span {

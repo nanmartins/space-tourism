@@ -3,26 +3,32 @@
     <!-- <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3> -->
     <h2 class="tech-left-device-name font-barlow-c text-uppercase" style="padding-top: 170px; padding-left: 165px"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
 
-    <v-row class="justify-end pt-10">
+    <v-row class="justify-end pt-2">
 
-      <v-col cols="auto" class="pa-0 pr-16 pt-10">
-        <div class="d-flex justify-start pt-10">
+      <v-col cols="auto" class="pa-0">
+        <div class="d-flex justify-end pt-4 pl-16">
+
           <div cols="3" class="tech-nav-links d-flex flex-column font-bellefair">
             <router-link to="/technology" class="nav-links d-flex justify-center align-center">1</router-link>
             <router-link to="/technology" class="nav-links d-flex justify-center align-center">2</router-link>
             <router-link to="/technology" class="nav-links d-flex justify-center align-center">3</router-link>
           </div>
 
-          <v-col cols="auto">
-            <h3>the terminology...</h3>
-            <h1>Launch Vehicle</h1>
+          <v-col cols="5" class="tech-left-techinfo pa-0">
+            <h3 class="tech-left-terminology font-barlow-c">the terminology...</h3>
+            <h1 class="tech-left-techname font-bellefair text-uppercase">{{ currentTechnology.name }}</h1>
+            <p class="tech-left-techdesc font-barlow">{{ currentTechnology.description }}</p>
+          </v-col>
+
+          <v-col cols="auto" class="text-left pt-6">
+            <v-img :src="imageUrl" width="460px"></v-img>
           </v-col>
         </div>
       </v-col>
 
-      <v-col cols="auto" class="text-left" style="padding-top: 30px">
+      <!-- <v-col cols="auto" class="text-left" style="padding-top: 30px">
         <v-img :src="imageUrl" width="460px"></v-img>
-      </v-col>
+      </v-col> -->
 
     </v-row>
 
@@ -110,12 +116,9 @@ const data =  {
   opacity: 0.25;
 }
 
-
-
-/* .tech-nav-links {
-  display: flex;
-  align-self: center;
-} */
+.tech-nav-links {
+  margin: auto 80px 32px 0;
+}
 
 .nav-links {
   height: 80px;
@@ -125,9 +128,41 @@ const data =  {
   border: 1px solid #FFFFFF;
   font-size: 32px;
   text-decoration: none;
-  margin: 22px 80px 32px 0 ;
+  margin-bottom: 35px;
+  /* margin: auto 80px 32px 0 ; */
   /* background: white; */
 }
+
+.tech-left-techinfo {
+  max-width: 480px;
+  margin: auto 160px auto 0;
+}
+
+.tech-left-terminology {
+  text-transform: uppercase;
+  color: #D0D6F9;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.7px;
+  padding-top: 15px;
+}
+
+.tech-left-techname {
+  font-size: 56px;
+  font-weight: 400;
+  line-height: normal;
+  padding: 15px 0;
+}
+
+.tech-left-techdesc {
+  color: #D0D6F9;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+
 
 .in-progress {
   letter-spacing: 2.7px;

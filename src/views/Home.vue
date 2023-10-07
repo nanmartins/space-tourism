@@ -1,8 +1,8 @@
 <template>
   <div class="home-view">
-    <v-row class="align-end justify-center ma-0 mb-10">
+    <v-row class="home-view-row align-end justify-center ma-0 mb-10">
 
-      <v-col cols="4" class="mb-10 pb-16 text-left">
+      <v-col cols="4" class="home-left-intro mb-10 pb-16 text-left">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
         <h1 class="home-text-title font-bellefair text-uppercase text-secondary">Space</h1>
         <p class="home-text-paragraph font-barlow text-details">Let’s face it; if you want to go to space, you might as well genuinely go to
@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="4" class="mb-12 pr-6 pb-16 text-right">
+      <v-col cols="4" class="home-right-btn-col mb-12 pr-6 pb-16 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -85,5 +85,54 @@
 
 .home-explore-btn:hover::before {
   opacity: 0.1036;
+}
+
+
+/* MEDIAQUERY */
+@media only screen and (max-width: 1380px) {
+
+  .home-view {
+    background-image: url('../assets/home/background-home-tablet.jpg');
+  }
+
+  .home-view-row {
+    display: grid;
+    align-content: space-around;
+    width: 100vw !important;
+    height: 100%;
+    padding: 160px 0 0 0;
+    justify-items: center;
+    text-align: center !important;
+  }
+
+  .home-left-intro {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+  }
+
+  .home-text-title {
+    margin: 0;
+    padding: 0;
+    line-height: 130px;
+  }
+  /* //////////////////////// */
+
+  .home-right-btn-col {
+    display: flex;
+    width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    padding-bottom: 100px !important;
+    justify-content: center;
+  }
+
+  .home-explore-btn {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 }
 </style>

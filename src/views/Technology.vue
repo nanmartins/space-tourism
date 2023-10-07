@@ -1,7 +1,7 @@
 <template>
   <div class="technology-view">
 
-    <h2 class="tech-left-device-name font-barlow-c text-uppercase" style="padding-top: 165px; padding-left: 165px"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
+    <h2 class="tech-left-device-name font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
 
     <!-- <div> -->
     <v-row class="tech-main-div pt-2">
@@ -15,11 +15,13 @@
             <router-link to="/technology/Space-capsule" class="nav-links d-flex justify-center align-center">3</router-link>
           </div>
 
-          <v-col cols="auto" class="tech-left-techinfo pa-0">
-            <h3 class="tech-left-terminology font-barlow-c">the terminology...</h3>
-            <h1 class="tech-left-techname font-bellefair text-uppercase">{{ currentTechnology.name }}</h1>
-            <p class="tech-left-techdesc font-barlow">{{ currentTechnology.description }}</p>
-          </v-col>
+          <div class="tech-left-techinfo-div">
+            <v-col cols="auto" class="tech-left-techinfo pa-0">
+              <h3 class="tech-left-terminology font-barlow-c">the terminology...</h3>
+              <h1 class="tech-left-techname font-bellefair text-uppercase">{{ currentTechnology.name }}</h1>
+              <p class="tech-left-techdesc font-barlow">{{ currentTechnology.description }}</p>
+            </v-col>
+          </div>
 
           <v-col cols="auto" class="tech-rigth-img-container text-left pt-6 pr-0">
             <v-img :src="imageUrl" class="tech-right-img"></v-img>
@@ -125,6 +127,11 @@ const data =  {
   overflow: hidden;
 }
 
+.tech-left-device-name {
+  padding-top: 165px;
+  padding-left: 165px
+}
+
 .tech-main-div {
   justify-content: end;
   margin-left: 165px;
@@ -144,7 +151,7 @@ const data =  {
 }
 
 .tech-nav-links {
-  margin: auto 80px 32px 0;
+  margin: auto 80px auto 0;
 }
 
 .nav-links {
@@ -167,6 +174,10 @@ const data =  {
   color: #0B0D17;
 }
 
+.tech-left-techinfo-div {
+  margin: auto;
+}
+
 .tech-left-techinfo {
   max-width: 480px;
   margin: auto 160px auto 0;
@@ -179,21 +190,22 @@ const data =  {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 2.7px;
-  padding-top: 15px;
+  /* padding-top: 15px; */
 }
 
 .tech-left-techname {
   font-size: 56px;
   font-weight: 400;
   line-height: normal;
-  padding: 15px 0;
+  padding: 20px 0;
 }
 
 .tech-left-techdesc {
   color: #D0D6F9;
   font-size: 18px;
   font-weight: 400;
-  line-height: 32px;
+  line-height: 34px;
+  margin-bottom: 20px;
 }
 
 
@@ -204,15 +216,41 @@ const data =  {
 
 
 /* MEDIAQUERY */
+/* screen width > 1450px */
 @media only screen and (min-width: 1450px) {
+
   .tech-main-div {
     justify-content: center;
     margin-left: 165px;
-    margin-top: 100px;
+    margin-top: 0px;
   }
 
   .tech-right-img {
-    width: 550px;
+    width: 520px;
+  }
+
+}
+
+/* screen width > 2000px */
+@media only screen  and (min-width: 2000px) {
+
+  .tech-right-img {
+    width: 650px;
+  }
+
+  .tech-left-device-name {
+    padding-top: 200px;
+    padding-left: 20vw;
+  }
+
+}
+
+/* JUST HEIGHT */
+/* screen height > 950px */
+@media only screen and (min-height: 950px) {
+
+  .tech-main-div {
+    margin-top: 70px;
   }
 }
 

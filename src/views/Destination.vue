@@ -269,4 +269,22 @@ onMounted(updateDestination)
   background-color: #FFFFFF;
 }
 
+
+/* MEDIAQUERY */
+/* screen width > 1450px */
+@media only screen and (min-width: 1450px) {
+
+
+}
+
+/* screen width > 2000px */
+@media only screen  and (min-width: 2000px) {
+
+  .dest-left-image {
+    max-width: 750px;
+  }
+
+
+}
+
 </style>

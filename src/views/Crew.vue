@@ -218,4 +218,21 @@ const data = {
 .router-link-exact-active {
   opacity: 1;
 }
+
+
+/* MEDIAQUERY */
+/* screen > 1450px */
+@media only screen and (min-width: 1450px) {
+
+}
+
+/* screen > 2000px */
+@media only screen  and (min-width: 2000px) {
+
+  .crew-right-img {
+    align-self: flex-end;
+    max-height: 750px;
+  }
+
+}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="technology-view">
-    <!-- <h3 class="in-progress d-flex align-center justify-center h-100 font-barlow-c text-uppercase text-details">in progress...</h3> -->
-    <h2 class="tech-left-device-name font-barlow-c text-uppercase" style="padding-top: 170px; padding-left: 165px"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
+
+    <h2 class="tech-left-device-name font-barlow-c text-uppercase" style="padding-top: 165px; padding-left: 165px"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
 
     <!-- <div> -->
     <v-row class="tech-main-div pt-2">
@@ -9,10 +9,10 @@
       <v-col cols="auto" class="pa-0">
         <div class="d-flex pt-4">
 
-          <div cols="3" class="tech-nav-links d-flex flex-column font-bellefair">
-            <router-link to="/technology" class="nav-links d-flex justify-center align-center">1</router-link>
-            <router-link to="/technology" class="nav-links d-flex justify-center align-center">2</router-link>
-            <router-link to="/technology" class="nav-links d-flex justify-center align-center">3</router-link>
+          <div cols="2" class="tech-nav-links d-flex flex-column font-bellefair">
+            <router-link to="/technology/Launch-vehicle" class="nav-links d-flex justify-center align-center">1</router-link>
+            <router-link to="/technology/Spaceport" class="nav-links d-flex justify-center align-center">2</router-link>
+            <router-link to="/technology/Space-capsule" class="nav-links d-flex justify-center align-center">3</router-link>
           </div>
 
           <v-col cols="auto" class="tech-left-techinfo pa-0">
@@ -35,21 +35,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import LaunchVehicle from '@/assets/technology/launch-vehicle.jpg'
 import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
 
 const route = useRoute()
-
-const imageMap = {
-  'Launch-vehicle': LaunchVehicle,
-  'Spaceport': SpacePort,
-  'Space-capsule': SpaceCapsule,
-}
-
-const imageUrl = ref(LaunchVehicle)
 
 const currentTechnology = ref({
   name: "Launch vehicle",
@@ -60,6 +52,35 @@ const currentTechnology = ref({
     description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
 })
 
+const imageMap = {
+  'Launch-vehicle': LaunchVehicle,
+  'Spaceport': SpacePort,
+  'Space-capsule': SpaceCapsule,
+}
+
+const imageUrl = ref(LaunchVehicle)
+
+const updateImage = () => {
+  const urlParts = route.path.split('/')
+  const lastPart = urlParts[urlParts.length -1]
+  imageUrl.value = imageMap[lastPart]
+}
+
+watch(() => route.path, updateImage, { immediate: true })
+
+const updateTech = () => {
+  const techName = formatName(routeName.value)
+  currentTechnology.value = data.technology.find(tech => tech.name === techName)
+}
+
+const formatName = (name) => {
+  return name ? name.replace(/-/g, ' ') : ''
+}
+
+const routeName = computed(() => formatName(route.params.name))
+
+watch(() => routeName.value, updateTech)
+onMounted(updateTech)
 
 const data =  {
   technology: [
@@ -131,10 +152,19 @@ const data =  {
   width: 80px;
   color: #FFFFFF;
   border-radius: 50%;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff49;
   font-size: 32px;
   text-decoration: none;
   margin-bottom: 35px;
+}
+
+.nav-links:hover {
+  border: 1px solid #FFFFFF;
+}
+
+.router-link-exact-active {
+  background: #FFFFFF;
+  color: #0B0D17;
 }
 
 .tech-left-techinfo {
@@ -174,7 +204,6 @@ const data =  {
 
 
 /* MEDIAQUERY */
-
 @media only screen and (min-width: 1450px) {
   .tech-main-div {
     justify-content: center;
@@ -187,13 +216,4 @@ const data =  {
   }
 }
 
-/* .in-progress {
-  letter-spacing: 2.7px;
-}
-
-.testando {
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-} */
 </style>

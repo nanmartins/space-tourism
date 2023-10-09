@@ -2,7 +2,7 @@
   <div class="home-view">
     <v-row class="home-view-row align-end justify-center ma-0 mb-10">
 
-      <v-col cols="4" class="home-left-intro mb-10 pb-16 text-left">
+      <v-col cols="4" xl="3" class="home-left-intro mb-10 pb-16 text-left">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
         <h1 class="home-text-title font-bellefair text-uppercase text-secondary">Space</h1>
         <p class="home-text-paragraph font-barlow text-details">Let’s face it; if you want to go to space, you might as well genuinely go to
@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="4" class="home-right-btn-col mb-12 pr-6 pb-16 text-right">
+      <v-col cols="4" xl="3" class="home-right-btn-col mb-12 pr-6 pb-16 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -93,24 +93,26 @@
 
   .home-view {
     background-image: url('../assets/home/background-home-tablet.jpg');
+    max-height: 140%;
   }
 
   .home-view-row {
     display: grid;
     align-content: space-around;
-    width: 100vw !important;
+    width: 100vw;
     height: 100%;
-    padding: 160px 0 0 0;
+    padding: 170px 0 0 0 !important;
+    margin: 0 !important;
     justify-items: center;
-    text-align: center !important;
+    text-align: center;
   }
 
   .home-left-intro {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    max-width: 100%;
     margin: 0 auto !important;
-    padding: 0 !important;
+    padding: 0;
     text-align: center !important;
   }
 
@@ -118,21 +120,29 @@
     margin: 0;
     padding: 0;
     line-height: 130px;
+    display: flex;
+    justify-content: center;
   }
+
+  .home-text-paragraph {
+    margin: 0 auto;
+  }
+
+
   /* //////////////////////// */
 
   .home-right-btn-col {
     display: flex;
-    width: 100vw !important;
-    margin: 0 !important;
+    width: 100vw;
+    margin: 0;
     padding: 0 !important;
-    padding-bottom: 100px !important;
+    padding-bottom: 100px;
     justify-content: center;
   }
 
   .home-explore-btn {
-    padding: 0 !important;
-    margin: 0 !important;
+    padding: 0;
+    margin: 0;
   }
 }
 </style>

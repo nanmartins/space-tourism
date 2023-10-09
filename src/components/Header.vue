@@ -11,19 +11,23 @@
 
     <div class="header-links font-barlow-c">
       <router-link to="/" class="nav-links">
-        <span class="font-weight-bold pr-1">00</span> Home
+        <span class="nav-link-number font-weight-bold pr-2">00</span>
+        <span>Home</span>
       </router-link>
 
       <router-link to="/destination/Moon" class="nav-links" :class="{ active: $route.path.includes('/destination/') }">
-        <span class="font-weight-bold pr-1">01</span> Destination
+        <span class="font-weight-bold pr-2">01</span>
+        <span>Destination</span>
       </router-link>
 
       <router-link to="/crew/Anousheh-Ansari" class="nav-links" :class="{ active: $route.path.includes('/crew/') }">
-        <span class="font-weight-bold pr-1">02</span> Crew
+        <span class="font-weight-bold pr-2">02</span>
+        <span>Crew</span>
       </router-link>
 
       <router-link to="/technology/Launch-vehicle" class="nav-links" :class="{ active: $route.path.includes('/technology/') }">
-        <span class="font-weight-bold pr-1">03</span> Technology
+        <span class="font-weight-bold pr-2">03</span>
+        <span>Technology</span>
       </router-link>
     </div>
   </div>

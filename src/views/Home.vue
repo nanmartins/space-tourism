@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="4" xl="3" class="home-right-btn-col mb-12 pr-6 pb-16 text-right">
+      <v-col cols="4" xl="3" class="home-right-btn-col mb-12 pr-6 pr-md-0 pb-16 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -111,7 +111,7 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    margin: 0 auto !important;
+    margin: 30px auto;
     padding: 0;
     text-align: center !important;
   }
@@ -135,8 +135,8 @@
     display: flex;
     width: 100vw;
     margin: 0;
-    padding: 0 !important;
-    padding-bottom: 100px;
+    padding: 50px 0 100px 0;
+    /* padding-bottom: 100px; */
     justify-content: center;
   }
 

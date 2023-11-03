@@ -140,8 +140,8 @@
     display: flex;
     width: 100vw;
     margin: 0;
-    padding: 0 !important;
-    padding-bottom: 100px;
+    padding: 50px 0 100px 0;
+    /* padding-bottom: 100px; */
     justify-content: center;
   }
 

@@ -1,8 +1,8 @@
 <template>
   <div class="home-view">
-    <v-row class="home-view-row align-end justify-center ma-0 mb-10">
+    <v-row class="home-view-row align-center justify-center ma-0">
 
-      <v-col cols="4" xl="3" class="home-left-intro mb-10 pb-16 text-left">
+      <v-col cols="4" xl="3" class="home-left-intro">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
         <h1 class="home-text-title font-bellefair text-uppercase text-secondary">Space</h1>
         <p class="home-text-paragraph font-barlow text-details">Let’s face it; if you want to go to space, you might as well genuinely go to
@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="4" xl="3" class="home-right-btn-col mb-12 pr-6 pb-16 text-right">
+      <v-col cols="4" xl="3" class="home-right-btn-col pa-0 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -29,6 +29,9 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 1000px;
+  padding: 16% 0 50px 0;
+  flex-shrink: 0;
   height: 100%;
 }
 
@@ -56,6 +59,7 @@
   max-width: 450px;
   word-wrap: break-word;
 }
+
 
 .home-explore-btn {
   font-size: 32px;
@@ -94,6 +98,8 @@
   .home-view {
     background-image: url('../assets/home/background-home-tablet.jpg');
     max-height: 140%;
+    min-height: 900px;
+    padding: 0 0 50px 0;
   }
 
   .home-view-row {
@@ -111,9 +117,8 @@
     display: flex;
     flex-direction: column;
     max-width: 100%;
-    margin: 0 auto !important;
+    margin: 0 auto;
     padding: 0;
-    text-align: center !important;
   }
 
   .home-text-title {
@@ -143,6 +148,13 @@
   .home-explore-btn {
     padding: 0;
     margin: 0;
+    height: 230px;
+    width: 230px;
+  }
+
+  .home-explore-btn::before {
+    width: 360px;
+    height: 360px;
   }
 }
 </style>

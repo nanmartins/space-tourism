@@ -1,7 +1,7 @@
 <template>
   <div class="technology-view">
 
-    <h2 class="tech-left-device-name font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
+    <h2 class="tech-left-device-name font-barlow-c text-uppercase mt-xl-10"><span class="font-barlow-c pr-2">03</span> Space launch 101</h2>
 
     <!-- <div> -->
     <v-row class="tech-main-div pt-2">

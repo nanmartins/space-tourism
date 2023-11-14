@@ -29,7 +29,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 1000px;
+  /* min-height: 1000px; */
   padding: 16% 0 50px 0;
   flex-shrink: 0;
   height: 100%;
@@ -98,8 +98,8 @@
   .home-view {
     background-image: url('../assets/home/background-home-tablet.jpg');
     max-height: 140%;
-    min-height: 900px;
-    padding: 0 0 50px 0;
+    height: 100%;
+    padding: 0 0 100px 0;
   }
 
   .home-view-row {
@@ -139,7 +139,7 @@
   .home-right-btn-col {
     display: flex;
     width: 100vw;
-    margin: 0;
+    margin-top: 100px;
     padding: 50px 0 100px 0;
     /* padding-bottom: 100px; */
     justify-content: center;

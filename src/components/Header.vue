@@ -1,5 +1,5 @@
 <template>
-  <div class="header-container">
+  <nav class="header-container">
 
     <div class="logo-svg-container">
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><g fill="none" fill-rule="evenodd"><circle cx="24" cy="24" r="24" fill="#FFF"/><path fill="#0B0D17" d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"/></g></svg>
@@ -7,7 +7,6 @@
         <span></span>
       </div>
     </div>
-
 
     <div class="header-links font-barlow-c">
       <router-link to="/" class="nav-links">
@@ -30,10 +29,45 @@
         <span>Technology</span>
       </router-link>
     </div>
-  </div>
+
+
+    <v-navigation-drawer
+      v-model="drawer"
+      location="right"
+      temporary
+      class="nav-drawer"
+    >
+      <router-link to="/" class="nav-links-mobile">
+        <span class="nav-links-span-number font-weight-bold pr-2">00</span>
+        <span>Home</span>
+      </router-link>
+
+      <router-link to="/destination/Moon" class="nav-links-mobile" :class="{ active: $route.path.includes('/destination/') }">
+        <span class="nav-links-span-number font-weight-bold pr-2">01</span>
+        <span>Destination</span>
+      </router-link>
+
+      <router-link to="/crew/Anousheh-Ansari" class="nav-links-mobile" :class="{ active: $route.path.includes('/crew/') }">
+        <span class="nav-links-span-number font-weight-bold pr-2">02</span>
+        <span>Crew</span>
+      </router-link>
+
+      <router-link to="/technology/Launch-vehicle" class="nav-links-mobile" :class="{ active: $route.path.includes('/technology/') }">
+        <span class="nav-links-span-number font-weight-bold pr-2">03</span>
+        <span>Technology</span>
+      </router-link>
+
+    </v-navigation-drawer>
+
+
+  </nav>
 </template>
 
 <script setup>
+// import { ref } from 'vue'
+import { useAppStore } from '../store/app'
+
+const drawer = useAppStore().drawer
 
 </script>
 
@@ -169,8 +203,19 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 650px) {
+  .header-links {
+    display: none;
+  }
 
+  .nav-drawer {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background:rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(40.774227142333984px);
+    z-index: 100;
+  }
 }
 
 </style>

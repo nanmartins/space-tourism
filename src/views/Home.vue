@@ -2,7 +2,7 @@
   <div class="home-view">
     <v-row class="home-view-row align-center justify-center ma-0">
 
-      <v-col cols="4" xl="3" class="home-left-intro">
+      <v-col cols="10" md="4" xl="3" class="home-left-intro">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
         <h1 class="home-text-title font-bellefair text-uppercase text-secondary">Space</h1>
         <p class="home-text-paragraph font-barlow text-details">Let’s face it; if you want to go to space, you might as well genuinely go to
@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="4" xl="3" class="home-right-btn-col pa-0 text-right">
+      <v-col cols="10" md="4" xl="3" class="home-right-btn-col pa-0 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -71,6 +71,7 @@
   height: 275px;
   width: 275px;
   position: relative;
+  z-index: 1;
 }
 
 .home-explore-btn::before {
@@ -107,7 +108,7 @@
     align-content: space-around;
     width: 100vw;
     height: 100%;
-    padding: 170px 0 0 0 !important;
+    padding: 170px 0 0 0;
     margin: 0 !important;
     justify-items: center;
     text-align: center;
@@ -157,4 +158,22 @@
     height: 360px;
   }
 }
+
+@media only screen and (max-width: 650px) {
+
+  .home-view {
+    background-image: url('../assets/home/background-home-mobile.jpg');
+  }
+
+  .home-view-row {
+    transform: scale(0.78);
+    padding-top: 70px;
+  }
+
+  .home-right-btn-col {
+    margin-top: 100px;
+    /* position: relative; */
+  }
+}
+
 </style>

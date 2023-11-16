@@ -286,21 +286,6 @@ const updateScreenWidth = () => {
     margin-top: 150px;
   }
 
-  .router-link-exact-active {
-    text-decoration: none;
-    position: relative;
-  }
-
-  .router-link-exact-active::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -30px;
-    width: 2px;
-    height: 22px;
-    background-color: #FFFFFF;
-  }
-
   .v-navigation-drawer__scrim {
     background: transparent;
   }

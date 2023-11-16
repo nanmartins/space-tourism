@@ -5,10 +5,9 @@
       <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2>
     </div>
 
-    <v-row class="dest-row-container align-center justify-center align-items-center ma-0">
+    <v-row class="dest-row-container ma-0">
 
       <v-col cols="10" md="6" lg="4" xl="4" class="dest-left-container pa-0">
-        <!-- <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2> -->
         <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
 
@@ -145,7 +144,7 @@ onMounted(updateDestination)
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 200px 0 50px 0;
+  padding: 160px 0 30px 0;
   height: 100%;
   overflow: hidden;
 }
@@ -182,7 +181,10 @@ onMounted(updateDestination)
 }
 
 .dest-row-container {
-  padding: 100px 0 50px 0;
+  /* padding: 100px 0 50px 0; */
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
   height: 100%;
   gap: 40px;
 }
@@ -304,6 +306,11 @@ onMounted(updateDestination)
   .destination-view {
     background-image: url('../assets/destination/background-destination-tablet.jpg');
     padding: 150px 0 20px 0;
+  }
+
+  .dest-row-container {
+    padding-top: 50px;
+    gap: 20px;
   }
 
   .dist-url-title {

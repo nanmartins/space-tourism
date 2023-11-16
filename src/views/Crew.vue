@@ -1,10 +1,15 @@
 <template>
   <div class="crew-view">
+
+    <div class="crew-meet-title">
+      <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2>
+    </div>
+
     <v-row class="align-center justify-center pa-0 ma-0" style="height: 100%; align-items: flex-end;">
 
       <v-col cols="6" xl="5" class="crew-left-container justify-start pa-0 pl-16">
         <div class="crew-left-div pl-sm-10">
-          <h2 class="crew-left-meet font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2>
+          <!-- <h2 class="crew-left-meet font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2> -->
           <h2 class="crew-left-role font-bellefair">{{ currentCrew.role }}</h2>
           <h1 class="crew-left-name font-bellefair">{{ currentCrew.name }}</h1>
 
@@ -129,7 +134,26 @@ const data = {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  padding: 160px 0 35px 0;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+.crew-meet-title {
+  padding-left: 160px;
+}
+
+.crew-meet-title h2 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 4.725px;
+  /* margin-top: 120px; */
+}
+
+.crew-meet-title span {
+  opacity: 0.25;
+  font-weight: 700;
 }
 
 /* LEFT */
@@ -143,18 +167,6 @@ const data = {
   align-self: flex-end;
 }
 
-.crew-left-container .crew-left-meet {
-  font-size: 28px;
-  font-weight: 400;
-  line-height: normal;
-  letter-spacing: 4.725px;
-  margin-top: 120px;
-}
-
-.crew-left-container span {
-  opacity: 0.25;
-  font-weight: 700;
-}
 
 .crew-left-role {
   font-size: 32px;

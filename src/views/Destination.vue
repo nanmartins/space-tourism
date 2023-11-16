@@ -193,6 +193,7 @@ onMounted(updateDestination)
 
 .dest-left-container {
   display: flex;
+  justify-content: center;
 }
 
 .dest-left-image {

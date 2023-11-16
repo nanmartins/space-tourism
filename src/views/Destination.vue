@@ -359,6 +359,14 @@ onMounted(updateDestination)
     padding-top: 10px;
   }
 
+  .dest-right-details h2 {
+    text-align: center;
+    font-size: 85px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: normal;
+  }
+
   .dest-details-bottom {
     flex-direction: column;
     gap: 40px

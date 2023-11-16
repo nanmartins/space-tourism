@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', {
   state: () => ({
-    drawer: true,
+    drawer: false,
     isScreenSmall: window.innerWidth <= 650
   }),
   actions: {

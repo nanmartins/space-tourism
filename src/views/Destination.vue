@@ -12,7 +12,7 @@
         <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
 
-      <v-col cols="10" md="6" lg="4" xl="4" class="dest-right-container pa-0 pl-lg-16">
+      <v-col cols="10" md="6" lg="4" xl="4" class="dest-right-container pr-0">
         <div class="dest-nav-links font-barlow-c mb-8">
           <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
           <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
@@ -163,7 +163,7 @@ onMounted(updateDestination)
 }
 
 .dist-url-title {
-  padding-left: 65px;
+  padding-left: 160px;
 }
 
 .dist-url-title span {
@@ -187,12 +187,22 @@ onMounted(updateDestination)
   gap: 40px;
 }
 
+/* LEFT */
+
+.dest-left-container {
+  display: flex;
+}
+
 .dest-left-image {
   max-width: 500px;
   width: 100%;
 }
 
 /* RIGHT */
+.dest-right-container {
+  padding-left: 100px;
+}
+
 .dest-nav-links {
   display: flex;
   gap: 20px;
@@ -284,6 +294,12 @@ onMounted(updateDestination)
   }
 }
 
+@media only screen  and (max-width: 1399px) {
+  .dest-right-container {
+    padding-left: 0;
+  }
+}
+
 @media only screen and (max-width: 1279px) {
   .destination-view {
     background-image: url('../assets/destination/background-destination-tablet.jpg');
@@ -291,7 +307,7 @@ onMounted(updateDestination)
   }
 
   .dist-url-title {
-    padding-left: 35px;
+    padding-left: 40px;
   }
 
   .dest-left-container {

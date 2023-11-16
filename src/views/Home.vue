@@ -171,6 +171,14 @@
     padding-top: 30px;
   }
 
+  .home-text-title {
+    font-size: 130px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 15px;
+  }
+
   .home-right-btn-col {
     margin-top: 50px;
     /* position: relative; */

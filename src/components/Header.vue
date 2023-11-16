@@ -31,45 +31,79 @@
     </div>
 
 
+    <button class="hamburger-icon mr-8" @click.stop="(drawer = !drawer)">
+      <svg v-if="drawer === false" xmlns="http://www.w3.org/2000/svg" width="24" height="21"><g fill="#D0D6F9" fill-rule="evenodd"><path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z"/></g></svg>
+    </button>
+
     <v-navigation-drawer
+      v-if="isScreenSmall"
       v-model="drawer"
       location="right"
       temporary
-      class="nav-drawer"
+      class="nav-drawer d-flex flex-column pl-12"
     >
-      <router-link to="/" class="nav-links-mobile">
-        <span class="nav-links-span-number font-weight-bold pr-2">00</span>
-        <span>Home</span>
-      </router-link>
 
-      <router-link to="/destination/Moon" class="nav-links-mobile" :class="{ active: $route.path.includes('/destination/') }">
-        <span class="nav-links-span-number font-weight-bold pr-2">01</span>
-        <span>Destination</span>
-      </router-link>
+      <button @click.stop="(drawer = !drawer)" class="hamburger-icon-close">
+        <svg v-if="drawer === true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g fill="#D0D6F9" fill-rule="evenodd"><path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z"/><path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z"/></g></svg>
+      </button>
 
-      <router-link to="/crew/Anousheh-Ansari" class="nav-links-mobile" :class="{ active: $route.path.includes('/crew/') }">
-        <span class="nav-links-span-number font-weight-bold pr-2">02</span>
-        <span>Crew</span>
-      </router-link>
+      <v-list class="nav-drawer-links-container d-flex flex-column font-barlow-c w-100" style="gap: 32px;">
 
-      <router-link to="/technology/Launch-vehicle" class="nav-links-mobile" :class="{ active: $route.path.includes('/technology/') }">
-        <span class="nav-links-span-number font-weight-bold pr-2">03</span>
-        <span>Technology</span>
-      </router-link>
+        <router-link to="/" class="nav-links-mobile">
+          <span class="nav-links-span-number font-weight-bold pr-2">00</span>
+          <span class="links-mobile">Home</span>
+        </router-link>
 
+        <router-link to="/destination/Moon" class="nav-links-mobile" :class="{ active: $route.path.includes('/destination/') }">
+          <span class="nav-links-span-number font-weight-bold pr-2">01</span>
+          <span class="links-mobile">Destination</span>
+        </router-link>
+
+        <router-link to="/crew/Anousheh-Ansari" class="nav-links-mobile" :class="{ active: $route.path.includes('/crew/') }">
+          <span class="nav-links-span-number font-weight-bold pr-2">02</span>
+          <span class="links-mobile">Crew</span>
+        </router-link>
+
+        <router-link to="/technology/Launch-vehicle" class="nav-links-mobile" :class="{ active: $route.path.includes('/technology/') }">
+          <span class="nav-links-span-number font-weight-bold pr-2">03</span>
+          <span class="links-mobile">Technology</span>
+        </router-link>
+
+      </v-list>
     </v-navigation-drawer>
 
 
   </nav>
 </template>
 
+
 <script setup>
-// import { ref } from 'vue'
+
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useAppStore } from '../store/app'
 
-const drawer = useAppStore().drawer
+const drawer = ref(useAppStore().drawer)
+const isScreenSmall = ref(useAppStore().isScreenSmall)
+
+const toggleDrawer = () => {
+  useAppStore().toggleDrawer()
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenWidth)
+})
+
+const updateScreenWidth = () => {
+  isScreenSmall.value = window.innerWidth <= 650
+}
+
 
 </script>
+
 
 <style scoped>
 
@@ -81,6 +115,7 @@ const drawer = useAppStore().drawer
   align-items: center;
   position: fixed;
   top: 30px;
+  z-index: 10;
 }
 
 /* LOGO CONTAINER*/
@@ -170,6 +205,10 @@ const drawer = useAppStore().drawer
   background-color: #FFFFFF;
 }
 
+.hamburger-icon {
+  display: none;
+}
+
 
 @media only screen and (max-width: 1380px) {
 
@@ -208,13 +247,66 @@ const drawer = useAppStore().drawer
     display: none;
   }
 
+  .hamburger-icon {
+    display: block;
+  }
+
+  .hamburger-icon-close {
+    position: absolute;
+    top: 35px;
+    right: 30px;
+  }
+
   .nav-drawer {
     display: flex;
-    position: relative;
+    position: absolute;
     flex-direction: column;
     background:rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(40.774227142333984px);
-    z-index: 100;
+  }
+
+  .nav-links-mobile {
+    display: flex;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.7px;
+    color: #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .links-mobile {
+    font-weight: 400;
+  }
+
+  .nav-drawer-links-container {
+    background:rgba(255, 255, 255, 0) !important;
+    width: 100%;
+    margin-top: 150px;
+  }
+
+  .router-link-exact-active {
+    text-decoration: none;
+    position: relative;
+  }
+
+  .router-link-exact-active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -30px;
+    width: 2px;
+    height: 22px;
+    background-color: #FFFFFF;
+  }
+
+  .v-navigation-drawer__scrim {
+    background: transparent;
+  }
+
+  .nav-links-span-number {
+    display: flex;
   }
 }
 

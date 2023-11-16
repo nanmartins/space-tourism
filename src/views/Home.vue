@@ -163,15 +163,16 @@
 
   .home-view {
     background-image: url('../assets/home/background-home-mobile.jpg');
+    padding: 0;
   }
 
   .home-view-row {
     transform: scale(0.78);
-    padding-top: 70px;
+    padding-top: 30px;
   }
 
   .home-right-btn-col {
-    margin-top: 100px;
+    margin-top: 50px;
     /* position: relative; */
   }
 }

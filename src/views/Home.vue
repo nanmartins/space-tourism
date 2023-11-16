@@ -2,7 +2,7 @@
   <div class="home-view">
     <v-row class="home-view-row align-center justify-center ma-0">
 
-      <v-col cols="10" md="4" xl="3" class="home-left-intro">
+      <v-col cols="10" md="6" lg="4" xl="3" class="home-left-intro">
         <h3 class="home-text-subtitle font-barlow-c text-uppercase text-details">So, you want to travel to</h3>
         <h1 class="home-text-title font-bellefair text-uppercase text-secondary">Space</h1>
         <p class="home-text-paragraph font-barlow text-details">Let’s face it; if you want to go to space, you might as well genuinely go to
@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="10" md="4" xl="3" class="home-right-btn-col pa-0 text-right">
+      <v-col cols="10" md="6" lg="4" xl="3" class="home-right-btn-col pa-0 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -94,7 +94,7 @@
 
 
 /* MEDIAQUERY */
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 1279px) {
 
   .home-view {
     background-image: url('../assets/home/background-home-tablet.jpg');

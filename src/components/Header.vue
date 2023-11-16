@@ -293,6 +293,16 @@ const updateScreenWidth = () => {
   .nav-links-span-number {
     display: flex;
   }
+
+  .router-link-exact-active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+  }
 }
 
 </style>

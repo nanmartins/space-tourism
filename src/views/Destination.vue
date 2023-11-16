@@ -1,13 +1,18 @@
 <template>
   <div class="destination-view">
-    <v-row class="align-center justify-center ma-0 pl-lg-8 pl-xl-16" style="height: 100%;">
 
-      <v-col cols="5" xl="4" class="dest-left-container pa-0 pl-2">
-        <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2>
+    <div class="dist-url-title">
+      <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2>
+    </div>
+
+    <v-row class="dest-row-container align-center justify-center align-items-center ma-0">
+
+      <v-col cols="10" md="6" lg="4" xl="4" class="dest-left-container pa-0">
+        <!-- <h2 class="dest-left-pick font-barlow-c text-uppercase"><span class="dest-left-pick-span font-barlow-c pr-2">01</span> Pick your destination</h2> -->
         <v-img :src="imageUrl" class="dest-left-image"></v-img>
       </v-col>
 
-      <v-col cols="5" lg="4" class="dest-right-container pl-lg-4 pl-md-0 pr-0 pt-0">
+      <v-col cols="10" md="6" lg="4" xl="4" class="dest-right-container pa-0 pl-lg-16">
         <div class="dest-nav-links font-barlow-c mb-8">
           <router-link to="/destination/Moon" class="nav-links">Moon</router-link>
           <router-link to="/destination/Mars" class="nav-links">Mars</router-link>
@@ -15,13 +20,13 @@
           <router-link to="/destination/Titan" class="nav-links">Titan</router-link>
         </div>
 
-        <div class="destination-detail">
-          <h2 class="dest-right-title font-bellefair py-4">{{ currentDestination.name }}</h2>
-          <p class="dest-right-paragraph font-barlow text-details">{{ currentDestination.description }}</p>
+        <div class="dest-right-details">
+          <h2 class="font-bellefair py-5">{{ currentDestination.name }}</h2>
+          <p class="font-barlow text-details">{{ currentDestination.description }}</p>
 
           <v-divider class="dest-right-divider mt-10 mb-6"></v-divider>
 
-          <div class="d-flex">
+          <div class="d-flex dest-details-bottom">
             <div>
               <p class="dest-right-distance font-barlow-c text-details">Avg. Distance</p>
               <p class="dest-right-distance-km font-bellefair">{{ currentDestination.distance }}</p>
@@ -35,6 +40,7 @@
 
         </div>
       </v-col>
+
     </v-row>
   </div>
 </template>
@@ -139,7 +145,9 @@ onMounted(updateDestination)
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 200px 0 50px 0;
   height: 100%;
+  overflow: hidden;
 }
 
 .destination-view::before {
@@ -154,12 +162,11 @@ onMounted(updateDestination)
   pointer-events: none;
 }
 
-/* LEFT  */
-.dest-left-container {
-  margin-top: 65px;
+.dist-url-title {
+  padding-left: 65px;
 }
 
-.dest-left-container span {
+.dist-url-title span {
   font-size: 28px;
   font-weight: 700;
   line-height: normal;
@@ -167,29 +174,25 @@ onMounted(updateDestination)
   opacity: 0.25;
 }
 
-.dest-left-container h2 {
+.dist-url-title h2 {
   font-size: 28px;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 4.725px;
-  margin-top: 80px;
+}
+
+.dest-row-container {
+  padding: 100px 0 50px 0;
+  height: 100%;
+  gap: 40px;
 }
 
 .dest-left-image {
-  margin-left: 60px;
-  margin-top: 150px;
-  margin-top: 60px;
   max-width: 500px;
   width: 100%;
-  justify-self: end;
 }
 
 /* RIGHT */
-.dest-right-container {
-  margin-top: 220px;
-  margin-left: 100px;
-}
-
 .dest-nav-links {
   display: flex;
   gap: 20px;
@@ -204,14 +207,14 @@ onMounted(updateDestination)
   letter-spacing: 2.7px;
 }
 
-.dest-right-title {
+.dest-right-details h2 {
   font-size: 100px;
   text-transform: uppercase;
   font-weight: 400;
   line-height: normal;
 }
 
-.dest-right-paragraph {
+.dest-right-details p {
   font-size: 18px;
   font-weight: 400;
   line-height: 32px;
@@ -227,8 +230,11 @@ onMounted(updateDestination)
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 2.362px;
-  margin-right: 120px;
   margin-bottom: 12px;
+}
+
+.dest-right-distance {
+  margin-right: 90px;
 }
 
 .dest-right-distance-km, .dest-right-travel-time {
@@ -271,20 +277,100 @@ onMounted(updateDestination)
 
 
 /* MEDIAQUERY */
-/* screen width > 1450px */
-@media only screen and (min-width: 1450px) {
-
-
-}
-
 /* screen width > 2000px */
 @media only screen  and (min-width: 2000px) {
-
   .dest-left-image {
     max-width: 750px;
   }
+}
 
+@media only screen and (max-width: 1279px) {
+  .destination-view {
+    background-image: url('../assets/destination/background-destination-tablet.jpg');
+    padding: 150px 0 20px 0;
+  }
 
+  .dist-url-title {
+    padding-left: 35px;
+  }
+
+  .dest-left-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .dest-left-image {
+    max-width: 450px;
+  }
+
+  .dest-row-container {
+    width: 100%;
+  }
+
+  .dest-nav-links {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    gap: 0;
+    width: 80%;
+  }
+
+  .dest-right-details h2 {
+    text-align: center;
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .dest-right-details p {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .dest-right-divider {
+    max-width: 100%;
+  }
+
+  .dest-details-bottom {
+    justify-content: space-around;
+  }
+
+  .dest-right-distance, .dest-right-travel {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+
+  .destination-view {
+    background-image: url('../assets/destination/background-destination-tablet.jpg');
+    padding: 110px 0 0 0;
+  }
+
+  .dist-url-title {
+    transform: scale(0.8);
+    padding: 0;
+    text-align: center;
+  }
+  .dest-row-container {
+    transform: scale(0.9);
+    padding-top: 10px;
+  }
+
+  .dest-details-bottom {
+    flex-direction: column;
+    gap: 40px
+  }
+
+  .dest-right-distance, .dest-right-travel {
+    transform: scale(1.2);
+  }
+
+  .dest-right-distance-km, .dest-right-travel-time {
+    transform: scale(1.2);
+  }
 }
 
 </style>

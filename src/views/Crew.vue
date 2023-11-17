@@ -7,7 +7,7 @@
 
     <v-row class="crew-row-container">
 
-      <v-col cols="10" md="6" lg="5" xl="4" class="crew-left-container justify-center pa-0">
+      <v-col cols="12" md="6" lg="5" xl="4" class="crew-left-container justify-center pa-0">
         <!-- <div class="crew-left-div"> -->
 
           <h2 class="crew-left-role font-bellefair">{{ currentCrew.role }}</h2>
@@ -25,8 +25,9 @@
 
       </v-col>
 
-      <v-col cols="10" md="6" lg="5" xl="4" class="crew-right-container pa-0">
+      <v-col cols="12" md="6" lg="5" xl="4" class="crew-right-container pa-0">
         <v-img :src="imageUrl" class="crew-right-img"></v-img>
+        <!-- <hr v-if="isScreenSmall" class="img-border-bottom"> -->
       </v-col>
 
     </v-row>
@@ -34,14 +35,29 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, computed } from 'vue'
+import { ref, watch, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import Crew01Img from '@/assets/crew/image-anousheh-ansari.png'
 import Crew02Img from '@/assets/crew/image-douglas-hurley.png'
 import Crew03Img from '@/assets/crew/image-mark-shuttleworth.png'
 import Crew04Img from '@/assets/crew/image-victor-glover.png'
+import { useAppStore } from '../store/app'
 
+
+const isScreenSmall = ref(useAppStore().isScreenSmall)
 const route = useRoute()
+
+onMounted(() => {
+  window.addEventListener('resize', updateScreenWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateScreenWidth)
+})
+
+const updateScreenWidth = () => {
+  isScreenSmall.value = window.innerWidth <= 650
+}
 
 const imageMap = {
   'Anousheh-Ansari': Crew01Img,
@@ -292,8 +308,9 @@ const data = {
 @media only screen and (max-width: 650px) {
   .crew-view {
     background-image: url('../assets/crew/background-crew-mobile.jpg');
-    /* transform: scale(0.8); */
     padding: 0;
+    height: 100%;
+    overflow-y: hidden;
   }
 
   .crew-meet-title {
@@ -303,14 +320,15 @@ const data = {
   }
 
   .crew-row-container {
-    height: 50%;
+    align-content: flex-start;
+    height: 40%;
     transform: scale(0.8);
   }
 
   .crew-left-container {
     display: grid !important;
     justify-items: center;
-    margin: 0 auto 70px auto !important;
+    margin: 0 auto 50px auto !important;
   }
 
   .crew-left-role {
@@ -328,7 +346,16 @@ const data = {
     height: 100%;
   }
 
+  .crew-right-container {
+    display: flex;
+    align-content: center;
+    widows: 100vw;
+  }
+
+  .crew-right-img {
+    object-fit: fill !important;
+    border-bottom: 1px solid #383B4B;
+  }
+
 }
-
-
 </style>

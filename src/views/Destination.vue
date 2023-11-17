@@ -145,6 +145,7 @@ onMounted(updateDestination)
   background-position: center;
   background-repeat: no-repeat;
   padding: 160px 0 30px 0;
+  flex-shrink: 0;
   height: 100%;
   overflow: hidden;
 }

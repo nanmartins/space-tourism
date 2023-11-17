@@ -381,6 +381,7 @@ onMounted(updateDestination)
   .dest-row-container {
     transform: scale(0.9);
     padding-top: 10px;
+    padding-bottom: 0;
   }
 
   .dest-right-details h2 {

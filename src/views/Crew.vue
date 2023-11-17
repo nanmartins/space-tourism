@@ -7,7 +7,7 @@
 
     <v-row class="crew-row-container">
 
-      <v-col cols="12" md="6" lg="5" xl="4" class="crew-left-container justify-center pa-0">
+      <v-col cols="12" md="6" lg="5" xl="4" class="crew-left-container justify-center">
         <!-- <div class="crew-left-div"> -->
 
           <h2 class="crew-left-role font-bellefair">{{ currentCrew.role }}</h2>
@@ -263,7 +263,7 @@ const data = {
 @media only screen and (max-width: 1279px) {
   .crew-view {
     background-image: url('../assets/crew/background-crew-tablet.jpg');
-    padding: 150px 0 35px 0;
+    padding: 150px 0 10px 0;
   }
 
   .crew-meet-title {
@@ -284,6 +284,7 @@ const data = {
     justify-content: center;
     align-items: flex-end;
     width: 100%;
+    padding: 0 50px;
     margin: 50px auto 60px auto !important;
   }
 

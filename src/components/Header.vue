@@ -274,6 +274,21 @@ const updateScreenWidth = () => {
     color: #FFFFFF;
     padding: 10px 0;
     text-align: center;
+    /* color: green; */
+  }
+
+  .nav-links-mobile.active {
+    position: relative;
+  }
+
+  .nav-links-mobile.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
   }
 
   .links-mobile {

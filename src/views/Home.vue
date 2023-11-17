@@ -10,7 +10,7 @@
         because we’ll give you a truly out of this world experience!</p>
       </v-col>
 
-      <v-col cols="10" md="6" lg="4" xl="3" class="home-right-btn-col pa-0 text-right">
+      <v-col cols="10" md="6" lg="5" xl="3" class="home-right-btn-col pa-0 text-right">
         <button class="home-explore-btn rounded-circle font-bellefair text-uppercase">Explore</button>
       </v-col>
 
@@ -29,7 +29,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  /* min-height: 1000px; */
   padding: 16% 0 50px 0;
   flex-shrink: 0;
   height: 100%;

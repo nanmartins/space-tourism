@@ -5,11 +5,11 @@
       <h2 class="font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2>
     </div>
 
-    <v-row class="align-center justify-center pa-0 ma-0" style="height: 100%; align-items: flex-end;">
+    <v-row class="crew-row-container">
 
-      <v-col cols="6" xl="5" class="crew-left-container justify-start pa-0 pl-16">
-        <div class="crew-left-div pl-sm-10">
-          <!-- <h2 class="crew-left-meet font-barlow-c text-uppercase"><span class="font-barlow-c pr-2">02</span> Meet  your crew</h2> -->
+      <v-col cols="10" md="6" lg="5" xl="4" class="crew-left-container justify-center pa-0">
+        <!-- <div class="crew-left-div"> -->
+
           <h2 class="crew-left-role font-bellefair">{{ currentCrew.role }}</h2>
           <h1 class="crew-left-name font-bellefair">{{ currentCrew.name }}</h1>
 
@@ -21,11 +21,11 @@
             <router-link to="/crew/Mark-Shuttleworth" class="nav-links"></router-link>
             <router-link to="/crew/Victor-Glover" class="nav-links"></router-link>
           </div>
-        </div>
+        <!-- </div> -->
 
       </v-col>
 
-      <v-col cols="5" xl="4" class="crew-right-container pa-0">
+      <v-col cols="10" md="6" lg="5" xl="4" class="crew-right-container pa-0">
         <v-img :src="imageUrl" class="crew-right-img"></v-img>
       </v-col>
 
@@ -136,7 +136,6 @@ const data = {
   background-repeat: no-repeat;
   padding: 160px 0 35px 0;
   height: 100%;
-  /* overflow: hidden; */
 }
 
 .crew-meet-title {
@@ -148,7 +147,6 @@ const data = {
   font-weight: 400;
   line-height: normal;
   letter-spacing: 4.725px;
-  /* margin-top: 120px; */
 }
 
 .crew-meet-title span {
@@ -156,17 +154,20 @@ const data = {
   font-weight: 700;
 }
 
+.crew-row-container {
+  align-items: flex-end;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 /* LEFT */
 .crew-left-container {
   display: flex;
-  height: 80%;
-  width: 600px;
+  flex-direction: column;
+  margin-bottom: 140px;
 }
-
-.crew-left-div {
-  align-self: flex-end;
-}
-
 
 .crew-left-role {
   font-size: 32px;
@@ -175,7 +176,6 @@ const data = {
   line-height: normal;
   font-weight: 400;
   opacity: 0.505;
-  margin-top: 150px;
 }
 
 .crew-left-name {
@@ -187,7 +187,6 @@ const data = {
   margin-top: 15px;
   white-space: nowrap;
 }
-
 
 .crew-left-bio {
   font-size: 18px;
@@ -223,14 +222,13 @@ const data = {
 
 .crew-right-img {
   align-self: flex-end;
-  max-height: 580px;
+  max-height: 600px;
 }
 
 /* ACTIVE */
 .router-link-exact-active {
   opacity: 1;
 }
-
 
 /* MEDIAQUERY */
 /* screen > 1450px */
@@ -240,11 +238,97 @@ const data = {
 
 /* screen > 2000px */
 @media only screen  and (min-width: 2000px) {
-
   .crew-right-img {
     align-self: flex-end;
     max-height: 750px;
   }
+}
+
+@media only screen and (max-width: 1279px) {
+  .crew-view {
+    background-image: url('../assets/crew/background-crew-tablet.jpg');
+    padding: 150px 0 35px 0;
+  }
+
+  .crew-meet-title {
+    padding-left: 40px;
+  }
+
+  .crew-row-container {
+    display: grid;
+    justify-items: center;
+    align-items: flex-end;
+    width: 100vw;
+    height: 100%;
+    transform: scale(0.95);
+  }
+
+  .crew-left-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    margin: 50px auto 60px auto !important;
+  }
+
+  .crew-left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 220px;
+  }
+
+  .crew-left-role {
+    text-align: center;
+  }
+
+  .crew-left-bio {
+    max-width: 100%;
+    height: fit-content;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .crew-view {
+    background-image: url('../assets/crew/background-crew-mobile.jpg');
+    /* transform: scale(0.8); */
+    padding: 0;
+  }
+
+  .crew-meet-title {
+    padding: 110px 0 0 0;
+    text-align: center;
+    transform: scale(0.8);
+  }
+
+  .crew-row-container {
+    height: 50%;
+    transform: scale(0.8);
+  }
+
+  .crew-left-container {
+    display: grid !important;
+    justify-items: center;
+    margin: 0 auto 70px auto !important;
+  }
+
+  .crew-left-role {
+    font-size: 20px;
+  }
+
+  .crew-left-name {
+    font-size: 32px;
+    margin: 15px;
+  }
+
+  .crew-left-bio {
+    font-size: 16px;
+    max-width: 100%;
+    height: 100%;
+  }
 
 }
+
+
 </style>

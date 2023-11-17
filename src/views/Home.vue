@@ -98,7 +98,7 @@
 
   .home-view {
     background-image: url('../assets/home/background-home-tablet.jpg');
-    max-height: 140%;
+    /* max-height: 140%; */
     height: 100%;
     padding: 0 0 100px 0;
   }
@@ -134,15 +134,11 @@
     margin: 0 auto;
   }
 
-
-  /* //////////////////////// */
-
   .home-right-btn-col {
     display: flex;
     width: 100vw;
     margin-top: 100px;
     padding: 50px 0 100px 0;
-    /* padding-bottom: 100px; */
     justify-content: center;
   }
 

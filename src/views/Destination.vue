@@ -369,7 +369,7 @@ onMounted(updateDestination)
 @media only screen and (max-width: 650px) {
 
   .destination-view {
-    background-image: url('../assets/destination/background-destination-tablet.jpg');
+    background-image: url('../assets/destination/background-destination-mobile.jpg');
     padding: 110px 0 0 0;
   }
 

@@ -85,7 +85,13 @@ const smallImgMap = {
   'Space-capsule': SpaceCapsuleLandscape,
 }
 
-const imageUrl = ref(LaunchVehicle)
+const imageUrl = ref(null)
+
+if (windowWidth.value < 1280) {
+  imageUrl.value = ref(LaunchVehicleLandscape)
+} else {
+  imageUrl.value = ref(LaunchVehicle)
+}
 
 const updateImage = () => {
   const urlParts = route.path.split('/')

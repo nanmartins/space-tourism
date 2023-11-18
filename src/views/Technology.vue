@@ -7,37 +7,27 @@
 
     <v-row class="tech-main-div">
 
-      <!-- <v-col cols="auto" class="pa-0"> -->
-        <!-- <div class="d-flex"> -->
+      <v-col cols="6" lg="6" xl="5" class="tech-left-techinfo-div">
 
-          <!-- <div cols="1" class="tech-nav-links d-flex flex-column font-bellefair">
-            <router-link to="/technology/Launch-vehicle" class="nav-links d-flex justify-center align-center">1</router-link>
-            <router-link to="/technology/Spaceport" class="nav-links d-flex justify-center align-center">2</router-link>
-            <router-link to="/technology/Space-capsule" class="nav-links d-flex justify-center align-center">3</router-link>
-          </div> -->
-
-          <v-col cols="6" class="tech-left-techinfo-div">
-
-            <v-col cols="1" class="tech-nav-links d-flex flex-column font-bellefair">
-              <router-link to="/technology/Launch-vehicle" class="nav-links d-flex justify-center align-center">1</router-link>
-              <router-link to="/technology/Spaceport" class="nav-links d-flex justify-center align-center">2</router-link>
-              <router-link to="/technology/Space-capsule" class="nav-links d-flex justify-center align-center">3</router-link>
-            </v-col>
+        <v-col cols="1" class="tech-nav-links d-flex flex-column font-bellefair">
+          <router-link to="/technology/Launch-vehicle" class="nav-links d-flex justify-center align-center">1</router-link>
+          <router-link to="/technology/Spaceport" class="nav-links d-flex justify-center align-center">2</router-link>
+          <router-link to="/technology/Space-capsule" class="nav-links d-flex justify-center align-center">3</router-link>
+        </v-col>
 
 
-            <v-col cols="auto" class="tech-left-techinfo">
-              <h3 class="tech-left-terminology font-barlow-c">the terminology...</h3>
-              <h1 class="tech-left-techname font-bellefair text-uppercase">{{ currentTechnology.name }}</h1>
-              <p class="tech-left-techdesc font-barlow">{{ currentTechnology.description }}</p>
-            </v-col>
+        <v-col cols="auto" class="tech-left-techinfo">
+          <h3 class="tech-left-terminology font-barlow-c">the terminology...</h3>
+          <h1 class="tech-left-techname font-bellefair text-uppercase">{{ currentTechnology.name }}</h1>
+          <p class="tech-left-techdesc font-barlow">{{ currentTechnology.description }}</p>
+        </v-col>
 
-          </v-col>
+      </v-col>
 
-          <v-col cols="5" xl="4" class="tech-rigth-img-container text-left">
-            <v-img :src="imageUrl" class="tech-right-img"></v-img>
-          </v-col>
-        <!-- </div> -->
-      <!-- </v-col> -->
+      <v-col cols="12" lg="4" xl="5" class="tech-rigth-img-container">
+        <!-- <v-img :src="imageUrl" class="tech-right-img"></v-img> -->
+        <img :src="imageUrl" class="tech-right-img" alt="">
+      </v-col>
 
     </v-row>
 
@@ -53,26 +43,26 @@ import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
 import SpaceCapsuleLandscape from '@/assets/technology/space-capsule-landscape.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
 import SpacePortLandscape from '@/assets/technology/spaceport-landscape.jpg'
-import { useAppStore } from '@/store/app.js'
 
 
 const route = useRoute()
-const isTabletScreen = ref(useAppStore().isTabletScreen)
-// const appStore = useAppStore()
+const windowWidth = ref(window.innerWidth)
 
-// const handleResize = () => {
-//   appStore.updateScreenWidth()
-// }
+const handleResize = () => {
+  windowWidth.value = window.innerWidth
+}
 
-// onMounted(() => {
-//   window.addEventListener('resize', handleResize)
-// })
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
 
-// onUnmounted(() => {
-//   window.removeEventListener('resize', handleResize)
-// })
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
-
+watch(windowWidth, () => {
+  updateImage()
+})
 
 const currentTechnology = ref({
   name: "Launch vehicle",
@@ -100,12 +90,19 @@ const imageUrl = ref(LaunchVehicle)
 const updateImage = () => {
   const urlParts = route.path.split('/')
   const lastPart = urlParts[urlParts.length -1]
-  if (!isTabletScreen.value) {
+
+  if (windowWidth.value < 1280) {
+    imageUrl.value = smallImgMap[lastPart]
+  } else {
     imageUrl.value = imageMap[lastPart]
   }
-  else {
-    imageUrl.value = smallImgMap[lastPart]
-  }
+
+  // if (!isTabletScreen.value) {
+  //   imageUrl.value = imageMap[lastPart]
+  // }
+  // else {
+  //   imageUrl.value = smallImgMap[lastPart]
+  // }
 }
 
 watch(() => route.path, updateImage, { immediate: true })
@@ -173,8 +170,8 @@ const data =  {
 }
 
 .tech-main-div {
-  margin-top: 60px;
-  justify-content: end;
+  margin-top: 10vh;
+  justify-content: center;
 }
 
 /* LEFT */
@@ -217,6 +214,7 @@ const data =  {
 .tech-left-techinfo-div {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 0;
 }
 
@@ -251,9 +249,14 @@ const data =  {
 }
 
 /* RIGHT */
-/* .tech-right-img {
-  width: 470px;
-} */
+.tech-rigth-img-container {
+  padding: 0;
+}
+
+.tech-right-img {
+  padding: 0;
+  width: 100%;
+}
 
 @media only screen and (max-width: 1279px) {
 

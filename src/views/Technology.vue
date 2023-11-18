@@ -7,9 +7,9 @@
 
     <v-row class="tech-main-div">
 
-      <v-col cols="6" lg="6" xl="5" class="tech-left-techinfo-div">
+      <v-col cols="12" lg="6" xl="5" class="tech-left-techinfo-div">
 
-        <v-col cols="1" class="tech-nav-links d-flex flex-column font-bellefair">
+        <v-col cols="auto" class="tech-nav-links d-flex font-bellefair">
           <router-link to="/technology/Launch-vehicle" class="nav-links d-flex justify-center align-center">1</router-link>
           <router-link to="/technology/Spaceport" class="nav-links d-flex justify-center align-center">2</router-link>
           <router-link to="/technology/Space-capsule" class="nav-links d-flex justify-center align-center">3</router-link>
@@ -188,7 +188,8 @@ const data =  {
 }
 
 .tech-nav-links {
-  margin: auto 80px auto 0;
+  flex-direction: column;
+  margin: auto 30px auto 0;
 }
 
 .nav-links {
@@ -263,12 +264,6 @@ const data =  {
   .technology-view {
     background-image: url('../assets/technology/background-technology-tablet.jpg');
     padding: 150px 0 0 0;
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
-    /* flex-shrink: 0; */
-    /* height: 100%; */
-    /* overflow: hidden; */
   }
 
   .tech-device-title {
@@ -281,6 +276,37 @@ const data =  {
     align-items: center;
     margin-top: 60px;
     justify-content: end;
+  }
+
+  .tech-left-techinfo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .tech-left-techinfo {
+    flex: 1;
+    text-align: center;
+    max-width: 520px;
+    padding: 0;
+    margin-bottom: 70px;
+  }
+
+  .tech-nav-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin: 45px auto 40px auto;
+  }
+
+  .nav-links {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 0;
+    padding: 0;
   }
 
   .tech-rigth-img-container {

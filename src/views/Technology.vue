@@ -65,6 +65,7 @@ onUnmounted(() => {
 
 watch(windowWidth, () => {
   updateImage()
+  updateImage()
 })
 
 const currentTechnology = ref({

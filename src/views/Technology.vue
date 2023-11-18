@@ -369,6 +369,10 @@ const data =  {
     padding: 20px 0;
   }
 
+  .tech-rigth-img-container {
+    min-height: 150px;
+  }
+
   .tech-rigth-img {
     width: 100%;
     max-height: calc(100vh - 200px);

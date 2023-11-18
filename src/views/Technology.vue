@@ -87,6 +87,13 @@ const smallImgMap = {
 }
 
 const imageUrl = (windowWidth.value < 1280) ? ref(LaunchVehicleLandscape) : ref(LaunchVehicle)
+computed(() => {
+  if (windowWidth.value < 1280) {
+    imageUrl.value = LaunchVehicleLandscape
+  } else {
+    imageUrl.value = LaunchVehicle
+  }
+})
 
 const updateImage = () => {
   const urlParts = route.path.split('/')

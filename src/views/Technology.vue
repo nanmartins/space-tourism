@@ -65,7 +65,6 @@ onUnmounted(() => {
 
 watch(windowWidth, () => {
   updateImage()
-  updateImage()
 })
 
 const currentTechnology = ref({
@@ -89,7 +88,14 @@ const smallImgMap = {
   'Space-capsule': SpaceCapsuleLandscape,
 }
 
-const imageUrl = ref((windowWidth.value < 1280) ? LaunchVehicleLandscape : LaunchVehicle)
+// const imageUrl = ref((windowWidth.value < 1280) ? LaunchVehicleLandscape : LaunchVehicle)
+const imageUrl = ref(() => {
+  if (windowWidth.value < 1280) {
+    return LaunchVehicleLandscape
+  } else {
+    return LaunchVehicle
+  }
+})
 
 // computed(() => {
 //   if (windowWidth.value < 1280) {
@@ -362,6 +368,12 @@ const data =  {
     line-height: normal;
     padding: 20px 0;
   }
+
+  .tech-rigth-img {
+    width: 100%;
+    max-height: calc(100vh - 200px);
+  }
+
 }
 
 

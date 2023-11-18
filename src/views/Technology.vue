@@ -88,7 +88,8 @@ const smallImgMap = {
   'Space-capsule': SpaceCapsuleLandscape,
 }
 
-const imageUrl = (windowWidth.value < 1280) ? ref(LaunchVehicleLandscape) : ref(LaunchVehicle)
+const imageUrl = ref((windowWidth.value < 1280) ? LaunchVehicleLandscape : LaunchVehicle)
+
 // computed(() => {
 //   if (windowWidth.value < 1280) {
 //     imageUrl.value = LaunchVehicleLandscape

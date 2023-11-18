@@ -45,13 +45,34 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import LaunchVehicle from '@/assets/technology/launch-vehicle.jpg'
+import LaunchVehicleLandscape from '@/assets/technology/launch-vehicle-landscape.jpg'
 import SpaceCapsule from '@/assets/technology/space-capsule.jpg'
+import SpaceCapsuleLandscape from '@/assets/technology/space-capsule-landscape.jpg'
 import SpacePort from '@/assets/technology/spaceport.jpg'
+import SpacePortLandscape from '@/assets/technology/spaceport-landscape.jpg'
+import { useAppStore } from '@/store/app.js'
+
 
 const route = useRoute()
+const isTabletScreen = ref(useAppStore().isTabletScreen)
+// const appStore = useAppStore()
+
+// const handleResize = () => {
+//   appStore.updateScreenWidth()
+// }
+
+// onMounted(() => {
+//   window.addEventListener('resize', handleResize)
+// })
+
+// onUnmounted(() => {
+//   window.removeEventListener('resize', handleResize)
+// })
+
+
 
 const currentTechnology = ref({
   name: "Launch vehicle",
@@ -68,12 +89,23 @@ const imageMap = {
   'Space-capsule': SpaceCapsule,
 }
 
+const smallImgMap = {
+  'Launch-vehicle': LaunchVehicleLandscape,
+  'Spaceport': SpacePortLandscape,
+  'Space-capsule': SpaceCapsuleLandscape,
+}
+
 const imageUrl = ref(LaunchVehicle)
 
 const updateImage = () => {
   const urlParts = route.path.split('/')
   const lastPart = urlParts[urlParts.length -1]
-  imageUrl.value = imageMap[lastPart]
+  if (!isTabletScreen.value) {
+    imageUrl.value = imageMap[lastPart]
+  }
+  else {
+    imageUrl.value = smallImgMap[lastPart]
+  }
 }
 
 watch(() => route.path, updateImage, { immediate: true })
@@ -222,5 +254,41 @@ const data =  {
 /* .tech-right-img {
   width: 470px;
 } */
+
+@media only screen and (max-width: 1279px) {
+
+  .technology-view {
+    background-image: url('../assets/technology/background-technology-tablet.jpg');
+    padding: 150px 0 0 0;
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* flex-shrink: 0; */
+    /* height: 100%; */
+    /* overflow: hidden; */
+  }
+
+  .tech-device-title {
+    padding-left: 40px;
+  }
+
+  .tech-main-div {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: 60px;
+    justify-content: end;
+  }
+
+  .tech-rigth-img-container {
+    width: 100vw;
+  }
+
+  .tech-right-img {
+    width: 100vw;
+    height: 100%;
+  }
+}
+
 
 </style>

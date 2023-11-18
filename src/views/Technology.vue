@@ -50,11 +50,13 @@ const windowWidth = ref(window.innerWidth)
 
 const handleResize = () => {
   windowWidth.value = window.innerWidth
+  updateImage()
 }
 
 onMounted(() => {
+  handleResize()
   window.addEventListener('resize', handleResize)
-  updateImage()
+  // updateImage()
 })
 
 onUnmounted(() => {
@@ -71,7 +73,7 @@ const currentTechnology = ref({
       portrait: "./assets/technology/image-launch-vehicle-portrait.jpg",
       landscape: "./assets/technology/image-launch-vehicle-landscape.jpg"
     },
-    description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+  description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
 })
 
 const imageMap = {
@@ -87,13 +89,13 @@ const smallImgMap = {
 }
 
 const imageUrl = (windowWidth.value < 1280) ? ref(LaunchVehicleLandscape) : ref(LaunchVehicle)
-computed(() => {
-  if (windowWidth.value < 1280) {
-    imageUrl.value = LaunchVehicleLandscape
-  } else {
-    imageUrl.value = LaunchVehicle
-  }
-})
+// computed(() => {
+//   if (windowWidth.value < 1280) {
+//     imageUrl.value = LaunchVehicleLandscape
+//   } else {
+//     imageUrl.value = LaunchVehicle
+//   }
+// })
 
 const updateImage = () => {
   const urlParts = route.path.split('/')

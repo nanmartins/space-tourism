@@ -156,7 +156,6 @@ const data =  {
 </script>
 
 <style scoped>
-
 .technology-view {
   background-image: url('../assets/technology/background-technology-desktop.jpg');
   background-size: cover;

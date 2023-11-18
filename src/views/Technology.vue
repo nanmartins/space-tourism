@@ -319,5 +319,46 @@ const data =  {
   }
 }
 
+@media only screen and (max-width: 650px) {
+
+  .technology-view {
+    background-image: url('../assets/technology/background-technology-mobile.jpg');
+    padding: 100px 0 00;
+  }
+
+  .tech-device-title {
+    padding-left: 0;
+    text-align: center;
+    transform: scale(0.8);
+  }
+
+  .tech-main-div {
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  .tech-nav-links {
+    margin: 35px auto 10px auto;
+  }
+
+  .nav-links {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .tech-left-techinfo {
+    transform: scale(0.8);
+  }
+
+  .tech-left-techname {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 20px 0;
+  }
+}
+
 
 </style>

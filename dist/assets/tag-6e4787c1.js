@@ -1,0 +1,1 @@
+import{p as r}from"./index-02284f15.js";const p=r({class:[String,Array],style:{type:[String,Array,Object],default:null}},"component"),c=(t,a)=>{const o=t.__vccOpts||t;for(const[s,e]of a)o[s]=e;return o},g=r({tag:{type:String,default:"div"}},"tag");export{c as _,g as a,p as m};

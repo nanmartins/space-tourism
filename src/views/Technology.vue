@@ -54,6 +54,7 @@ const handleResize = () => {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
+  updateImage()
 })
 
 onUnmounted(() => {

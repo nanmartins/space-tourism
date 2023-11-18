@@ -85,13 +85,7 @@ const smallImgMap = {
   'Space-capsule': SpaceCapsuleLandscape,
 }
 
-const imageUrl = ref(null)
-
-if (windowWidth.value < 1280) {
-  imageUrl.value = ref(LaunchVehicleLandscape)
-} else {
-  imageUrl.value = ref(LaunchVehicle)
-}
+const imageUrl = (windowWidth.value < 1280) ? ref(LaunchVehicleLandscape) : ref(LaunchVehicle)
 
 const updateImage = () => {
   const urlParts = route.path.split('/')
@@ -102,13 +96,6 @@ const updateImage = () => {
   } else {
     imageUrl.value = imageMap[lastPart]
   }
-
-  // if (!isTabletScreen.value) {
-  //   imageUrl.value = imageMap[lastPart]
-  // }
-  // else {
-  //   imageUrl.value = smallImgMap[lastPart]
-  // }
 }
 
 watch(() => route.path, updateImage, { immediate: true })

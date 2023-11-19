@@ -173,8 +173,10 @@ const data =  {
 }
 
 .tech-main-div {
-  margin-top: 10vh;
+  /* margin-top: 5vh; */
+  height: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 /* LEFT */
@@ -275,6 +277,7 @@ const data =  {
 
   .tech-main-div {
     display: flex;
+    height: auto;
     flex-direction: column-reverse;
     align-items: center;
     margin-top: 60px;

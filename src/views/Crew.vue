@@ -26,7 +26,8 @@
       </v-col>
 
       <v-col cols="12" md="6" lg="5" xl="4" class="crew-right-container pa-0">
-        <v-img :src="imageUrl" class="crew-right-img"></v-img>
+        <!-- <v-img :src="imageUrl" class="crew-right-img"></v-img> -->
+        <img :src="imageUrl" class="crew-right-img" alt="">
         <!-- <hr v-if="isScreenSmall" class="img-border-bottom"> -->
       </v-col>
 
@@ -235,6 +236,7 @@ const data = {
 .crew-right-container {
   display: flex;
   height: 100%;
+  justify-content: center;
 }
 
 .crew-right-img {
@@ -305,6 +307,10 @@ const data = {
     max-width: 100%;
     height: fit-content;
   }
+
+  /* .crew-right-container {
+    justify-content: center;
+  } */
 }
 
 @media only screen and (max-width: 650px) {

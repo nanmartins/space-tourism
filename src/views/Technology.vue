@@ -95,7 +95,7 @@ const updateImage = () => {
   const urlParts = route.path.split('/')
   const lastPart = urlParts[urlParts.length -1]
 
-  if (windowWidth.value < 1280) {
+  if (windowWidth.value < 1279) {
     imageUrl.value = smallImgMap[lastPart] || LaunchVehicleLandscape
   } else {
     imageUrl.value = imageMap[lastPart] || LaunchVehicle

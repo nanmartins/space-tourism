@@ -64,6 +64,7 @@ onUnmounted(() => {
 })
 
 watch(windowWidth, () => {
+  handleResize()
   updateImage()
 })
 
@@ -89,14 +90,6 @@ const smallImgMap = {
 }
 
 const imageUrl = ref(LaunchVehicle)
-
-// const imageUrl = ref(() => {
-//   if (windowWidth.value < 1280) {
-//     return LaunchVehicleLandscape
-//   } else {
-//     return LaunchVehicle
-//   }
-// })
 
 const updateImage = () => {
   const urlParts = route.path.split('/')

@@ -88,20 +88,13 @@ const smallImgMap = {
   'Space-capsule': SpaceCapsuleLandscape,
 }
 
-// const imageUrl = ref((windowWidth.value < 1280) ? LaunchVehicleLandscape : LaunchVehicle)
-const imageUrl = ref(() => {
-  if (windowWidth.value < 1280) {
-    return LaunchVehicleLandscape
-  } else {
-    return LaunchVehicle
-  }
-})
+const imageUrl = ref(LaunchVehicle)
 
-// computed(() => {
+// const imageUrl = ref(() => {
 //   if (windowWidth.value < 1280) {
-//     imageUrl.value = LaunchVehicleLandscape
+//     return LaunchVehicleLandscape
 //   } else {
-//     imageUrl.value = LaunchVehicle
+//     return LaunchVehicle
 //   }
 // })
 
@@ -110,9 +103,9 @@ const updateImage = () => {
   const lastPart = urlParts[urlParts.length -1]
 
   if (windowWidth.value < 1280) {
-    imageUrl.value = smallImgMap[lastPart]
+    imageUrl.value = smallImgMap[lastPart] || LaunchVehicleLandscape
   } else {
-    imageUrl.value = imageMap[lastPart]
+    imageUrl.value = imageMap[lastPart] || LaunchVehicle
   }
 }
 
@@ -160,8 +153,8 @@ const data =  {
     }
   ]
 }
-
 </script>
+
 
 <style scoped>
 .technology-view {
@@ -321,6 +314,7 @@ const data =  {
 
   .tech-rigth-img-container {
     width: 100vw;
+    min-height: 300px;
   }
 
   .tech-right-img {
